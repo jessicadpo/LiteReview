@@ -20,5 +20,4 @@ jobs:
         pip install django pylint
     - name: Analysing the code with pylint
       run: |
-        pylint --disable=C0415 manage.py
         pylint $(git ls-files '*.py')
