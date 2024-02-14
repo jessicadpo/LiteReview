@@ -1,4 +1,4 @@
-"""Module for application views"""
+"""Module for litereview views"""
 from django.shortcuts import render
 
 
