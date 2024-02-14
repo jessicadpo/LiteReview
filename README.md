@@ -1,7 +1,7 @@
 # LiteReview
 IRM3004 - Group Project
 
-# SET UP PROJECT:
+# SET UP PROJECT
 1. In terminal: Go to the folder you want to put the project in (Hint: use `cd` command)
 2. In terminal: `git clone https://github.com/jessicadpo/LiteReview.git`
 3. Navigate to the LiteReview folder in your file explorer.
