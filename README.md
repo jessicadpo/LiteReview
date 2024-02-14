@@ -34,9 +34,9 @@ IRM3004 - Group Project
 2. `git status` Double-check that all relevant files are in green.
 3. `git commit -m "Descriptive commit message here"`
 4. Press ENTER.
-5. `git checkout main` Switch to local main branch.
+5. `git checkout main` Switch to local main branch (VERY IMPORTANT)
 6. `git pull origin main` Update local main branch to match GitHub's most recent main branch.
-7. `git checkout task-branch-name` Switch back to your task branch.
+7. `git checkout task-branch-name` Switch back to your task branch (VERY IMPORTANT)
 8. `git merge main` Merge local main branch into your task branch.
 9. If there are merge conflicts, resolve (if you can) or ask for clarifications on Discord.
 10. [SKIP THIS STEP FOR SPRINT #1] ~~`python -m unittest discover` Make sure your task branch passes everyone's test.~~
