@@ -1,70 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- Significant portions of this code has been provided by W3 https://www.w3schools.com/howto/howto_css_modals.asp-->
+    <!-- Portions of this code have been provided by W3 https://www.w3schools.com/howto/howto_css_modals.asp-->
+    <meta charset="UTF-8">
+    <title>StatReview</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        .modal {
-            display: none; 
-            position: fixed; 
-            z-index: 1;
-            padding-top: 100px; 
-            left: 0;
-            top: 0;
-            width: 100%; 
-            height: 100%; 
-            overflow: auto;
-            background-color: rgb(0, 0, 0); 
-            background-color: rgba(0, 0, 0, 0.4); 
-        }
-
-        /* Modal Content */
-        .modal-content {
-            background-color: #fefefe;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-        }
-
-        /* The Close Button */
-        .close {
-            color: #aaaaaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: #000;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .input-group {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .input-group p {
-            margin-right: 10px;
-            min-width: 100px;
-            text-align: right;
-        }
-
-        .input-group input,
-        .input-group select,
-        .input-group textarea {
-            flex: 1;
-            min-width: 100px;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="../Static/CSS/StatReview.css">
 </head>
 <body>
 
@@ -78,6 +19,7 @@
     <div class="modal-content">
         <span class="close">&times;</span>
         <div class="input-group">
+            <br>
             <p>Title:</p>
             <input type="text" id="titleInput">
         </div>
