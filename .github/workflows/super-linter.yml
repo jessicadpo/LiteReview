@@ -6,7 +6,7 @@
 # https://github.com/github/super-linter
 name: Lint Code Base
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
   run-lint:
