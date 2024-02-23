@@ -9,13 +9,8 @@ class User(models.Model):
     usr_name = models.CharField(max_length=64)
     '''user defined username'''
     full_name = models.CharField(max_length=64)
-    '''user's full real name (discuss: split into first & last or remove entirely? why do we need this)'''
+    '''user's full real name (discuss: split  or remove entirely? why do we need this)'''
     password = models.CharField(max_length=64)
     '''user's password (hidden/encrypted? look into)'''
     email = models.CharField(max_length=64)
-    '''user's email (can be set as email field to allow validation, but needs infrastructure; discuss)'''
-
-
-
-
-
+    '''user's email (can be email field to allow validation; discuss)'''
