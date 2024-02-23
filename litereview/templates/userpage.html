@@ -18,8 +18,9 @@
                 <button type="submit">Search</button>
             </div>
             <div class="user">
-                <button>Login / Sign Up</button>
+                <button class="login-btn">Login / Sign Up</button>
             </div>
+
         </div>
     </header>
 
@@ -27,19 +28,29 @@
 
     </main>
 
-    <footer>
-        <div class="user-reviews">
-            <h2>Username</h2>
-            <div class="review">
-                <h3>Review Title 1</h3>
-                <p>Description of the review.</p>
-            </div>
-            <div class="review">
-                <h3>Review Title 2</h3>
-                <p>Description of the review.</p>
-            </div>
-            <!-- Add more reviews here -->
+
+    <div class="user-bar">
+        <span>Username</span>
+        <div class="actions">
+            <button class="filter-btn">Filter</button>
+            <button class="sort-btn">Sort</button>
         </div>
-    </footer>
+    </div>
+
+        <hr>
+    </div>
+    <div class="user-reviews">
+        <div class="review">
+            <h3>Review Title 1</h3>
+            <p>Description of the review.</p>
+        </div>
+        <div class="review">
+            <h3>Review Title 2</h3>
+            <p>Description of the review.</p>
+        </div>
+        <!-- Reviews will be in same style and will be shown based on user page -->
+    </div>
+
+    <div class="circle-button" id="circle-Button" onclick="alert('Create review form here')">+</div>
 </body>
 </html>
