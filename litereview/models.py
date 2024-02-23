@@ -14,3 +14,4 @@ class User(models.Model):
     '''user's password (hidden/encrypted? look into)'''
     email = models.CharField(max_length=64)
     '''user's email (can be email field to allow validation; discuss)'''
+    
