@@ -3,10 +3,49 @@
 <!--Header section, nothing too crazy here-->
 <head>
     <meta charset="UTF-8">
+    <!--Logo will probably go here, once we have one-->
+    <!--Logo and title will need to link to homepage once the page directory is finalized-->
     <title>App Name</title>
 </head>
 <!--dropdown menu will go here once I copy what Thomas does-->
 <body>
+<!--Title of page-->
+			<h1 id="title"> <b> App Name </b> </h1>
+			<h3 id="subtitle"> <b> Sign Up </b> </h3>
+
+    <form onsubmit="post">
+
+		Email: </br>
+		<input id="email" type="text"></input>
+		</br></br>
+		Username:</br>
+		<input id="username" type="text"></input>
+		</br></br>
+		Password: </br>
+		<input id="password" type="text"></input>
+        </br>
+		Confirm Password:</br>
+		<input id="confirm password" type="text"></input>
+		</br></br>
+
+        <button onclick="userInfo" value="create account">Create Account</button>
+    </form>
+
+    <form onsubmit="post">
+        <h3 id="subtitle"> <b> Log In </b> </h3>
+
+            Email: </br>
+            <input id="email" type="text"></input>
+            </br></br>
+            Password: </br>
+            <input id="password" type="text"></input>
+            </br></br>
+
+            <button onclick="userInfo" value="log in">Log In</button>
+
+            <br />
+        </form>
+
 
 </body>
 </html>
