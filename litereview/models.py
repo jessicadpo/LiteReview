@@ -8,10 +8,8 @@ class User(models.Model):
     '''unique user id (auto-generated? look into)'''
     usr_name = models.CharField(max_length=64)
     '''user defined username'''
-    full_name = models.CharField(max_length=64)
-    '''user's full real name (discuss: split  or remove entirely? why do we need this)'''
     password = models.CharField(max_length=64)
     '''user's password (hidden/encrypted? look into)'''
-    email = models.CharField(max_length=64)
-    '''user's email (can be email field to allow validation; discuss)'''
+    email = models.EmailField(max_length=254)
+    '''user's email, NEEDS CORRESPONDING EMAILVALIDATOR '''
     
