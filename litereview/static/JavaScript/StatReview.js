@@ -18,7 +18,7 @@
         modal.style.display = "none";
     }
 
-    cancelBtn.onclick = function () {
+    cancelRevBtn.onclick = function () {
         modal.style.display = "none";
     }
 
