@@ -14,8 +14,3 @@ def index(request):
 def temp_review_modal(request):
     """Temporary view for rendering Create Review modal form"""
     return render(request, 'StatReview.html')
-
-
-
-
-
