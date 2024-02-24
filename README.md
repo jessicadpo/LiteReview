@@ -107,7 +107,7 @@
 15. Ping the Discord server to ask someone to review your code.
 
 # PEER-REVIEW CODE
-1. `git pull branch-to-review`
+1. `git fetch origin branch-to-review`
 2. `git checkout branch-to-review`
 3. To run the server/website:
    1. Windows: `python manage.py runserver`
