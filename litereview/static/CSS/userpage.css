@@ -23,7 +23,7 @@ header {
 }
 
 .webname {
-    display: inline-block; /*I don't even know if this is needed or if its even doing anything*/
+    display: inline-block; /* I don't even know if this is needed or if its even doing anything */
     font-size: 40px;
 }
 
@@ -43,13 +43,6 @@ header {
 }
 
 .search-bar button {
-    padding: 5px 10px;
-    background-color: #ccc;
-    border: none;
-    cursor: pointer;
-}
-
-.user button {
     padding: 5px 10px;
     background-color: #ccc;
     border: none;
@@ -99,27 +92,27 @@ header {
     background-color: #bbb;
 }
 
-/*Ihatethis it won't fucking work -- I TAKE IT BACK ITS WORKING, CHATGPT HELPED ME HERE*/
+/* Ihatethis it won't fucking work -- I TAKE IT BACK ITS WORKING, CHATGPT HELPED ME HERE */
 .circle-button {
-  width: 50px;
-  height: 50px;
-  background-color: #007bff; /* Blue color stolen from google docs */
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 50px;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 1000;
-  cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  font-weight: bold;
+    width: 50px;
+    height: 50px;
+    background-color: #007bff; /* Blue color stolen from google docs */
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 30%);
+    font-weight: bold;
+    transition: background-color 0.3s;
 }
-
-#circle-Button:hover {
-  background-color: darkblue;
+.circle-button:hover {
+    background-color: #0000a5;
 }
 
 .user-bar {

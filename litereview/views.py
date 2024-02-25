@@ -1,7 +1,6 @@
 """Module for litereview views"""
 from django.shortcuts import render
 
-
 def index(request):
     """View for index page (AKA homepage)"""
 
@@ -10,12 +9,10 @@ def index(request):
              {"author": "Samiha", "contents": "I am even cooler!"}]
     return render(request, 'index.html', {"blog_posts": posts})
 
-
 def userpage(request):
+    """View for userpage"""
     return render(request, 'userpage.html')
-
 
 def temp_review_modal(request):
     """Temporary view for rendering Create Review modal form"""
     return render(request, 'StatReview.html')
-
