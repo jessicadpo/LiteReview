@@ -22,6 +22,11 @@ header {
     padding: 0 20px;
 }
 
+.webname {
+    display: inline-block; /*I don't even know if this is needed or if its even doing anything*/
+    font-size: 40px;
+}
+
 .logo img {
     width: 50px;
     height: 50px;
@@ -94,19 +99,23 @@ header {
     background-color: #bbb;
 }
 
-/*Ihatethis it won't fucking work*/
-#circle-Button {
+/*Ihatethis it won't fucking work -- I TAKE IT BACK ITS WORKING, CHATGPT HELPED ME HERE*/
+.circle-button {
+  width: 50px;
+  height: 50px;
+  background-color: #007bff; /* Blue color stolen from google docs */
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 50px;
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: blue;
-  color: white;
-  border: none;
-  border-radius: 50%; /* This creates a circle */
-  width: 50px;
-  height: 50px;
-  font-size: 24px;
+  z-index: 1000;
   cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
 }
 
 #circle-Button:hover {
