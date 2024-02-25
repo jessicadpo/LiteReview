@@ -1,71 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- Significant portions of this code has been provided by W3 https://www.w3schools.com/howto/howto_css_modals.asp-->
+    <!-- Portions of this code have been provided by W3 https://www.w3schools.com/howto/howto_css_modals.asp-->
     <title>Basic Modal Code</title>
+    <meta charset="UTF-8">
+    <title>StatReview</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        .modal {
-            display: none; 
-            position: fixed; 
-            z-index: 1;
-            padding-top: 100px; 
-            left: 0;
-            top: 0;
-            width: 100%; 
-            height: 100%; 
-            overflow: auto;
-            background-color: rgb(0, 0, 0); 
-            background-color: rgba(0, 0, 0, 0.4); 
-        }
-
-        /* Modal Content */
-        .modal-content {
-            background-color: #fefefe;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-        }
-
-        /* The Close Button */
-        .close {
-            color: #aaaaaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: #000;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .input-group {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .input-group p {
-            margin-right: 10px;
-            min-width: 100px;
-            text-align: right;
-        }
-
-        .input-group input,
-        .input-group select,
-        .input-group textarea {
-            flex: 1;
-            min-width: 100px;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="../static/CSS/StatReview.css">
 </head>
 <body>
 
@@ -77,17 +18,16 @@
 
     <!-- Modal content -->
     <div class="modal-content">
-        <span class="close">&times;</span>
         <div class="input-group">
-            <p>Title:</p>
+            <p>Title</p>
             <input type="text" id="titleInput">
         </div>
         <div class="input-group">
-            <p>Author:</p>
+            <p>Creator</p>
             <input type="text" id="authorInput">
         </div>
         <div class="input-group">
-            <p>Media Type:</p>
+            <p>Media Type</p>
             <select id="mediaTypeSelect">
                 <option value="movie">Movie</option>
                 <option value="tvShow">TV Show</option>
@@ -98,7 +38,7 @@
             </select>
         </div>
         <div class="input-group">
-            <p>Completion:</p>
+            <p>Status</p>
             <select id="completionSelect">
                 <option value="In Progress">In Progress</option>
                 <option value="Completed">Completed</option>
@@ -106,50 +46,28 @@
             </select>
         </div>
         <div class="input-group">
-            <p>Rating:</p>
-            <input type="text" id="RatingInput">
+            <p>Rating (Optional)</p>
+            <div id="rating-container">
+                <input type="text" id="ratingInput">
+                <p>/ 10</p>
+                <img id="star" src="static/icons/md_star.png" alt="A black star"/>
+            </div>
         </div>
         <div class="input-group">
-            <p>Review:</p>
+            <p>Review (Optional)</p>
             <textarea id="reviewTextarea" rows="20"></textarea>
         </div>
         <br>
-        <button id="submitReviewBtn">Submit Review</button>
-        <button id="cancelBtn">Cancel</button>
+        <div id="button-section">
+            <button id="submitReviewBtn">Create Review</button>
+            <button class="close" id="cancelBtn">Cancel</button>
+        </div>
     </div>
 
 </div>
 
-<script>
-    // Get the modal
-    var modal = document.getElementById("myModal");
 
-    // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    var cancelBtn = document.getElementById("cancelBtn");
-
-    btn.onclick = function () {
-        modal.style.display = "block";
-    }
-
-    span.onclick = function () {
-        modal.style.display = "none";
-    }
-
-    cancelBtn.onclick = function () {
-        modal.style.display = "none";
-    }
-
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-</script>
+<script src="../static/JavaScript/StatReview.js"></script>
 
 </body>
 </html>
