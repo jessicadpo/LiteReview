@@ -9,3 +9,8 @@ def index(request):
     posts = [{"author": "Jimmy", "contents": "I am the coolest!"},
              {"author": "Samiha", "contents": "I am even cooler!"}]
     return render(request, 'index.html', {"blog_posts": posts})
+
+
+def signup_login(request):
+    """View for Sign up/Login page"""
+    return render(request, 'signup-login.html')
