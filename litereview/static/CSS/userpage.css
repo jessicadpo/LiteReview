@@ -107,10 +107,11 @@ header {
     right: 20px;
     z-index: 1000;
     cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 30%);
+    box-shadow: 0 2px 4px rgb(0 0 0 / 0.3);
     font-weight: bold;
     transition: background-color 0.3s;
 }
+
 .circle-button:hover {
     background-color: #0000a5;
 }
