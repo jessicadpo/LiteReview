@@ -19,4 +19,5 @@ from .views import index
 
 urlpatterns = [
     path('', index),
+    path('temp_review', temp_review_modal)
 ]
