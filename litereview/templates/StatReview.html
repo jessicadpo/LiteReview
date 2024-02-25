@@ -10,56 +10,43 @@
 </head>
 <body>
 
-<h2>Basic Modal Code</h2>
+<h2>My Account Modal Code</h2>
 
-<button id="myBtn">Create Review</button>
+<button id="myBtn">My Account</button>
 
 <div id="myModal" class="modal">
 
     <!-- Modal content -->
     <div class="modal-content">
         <div class="input-group">
-            <p>Title</p>
-            <input type="text" id="titleInput">
+            <p>New Username</p>
+            <input type="text" id="newUsr">
+            <hr>
         </div>
         <div class="input-group">
-            <p>Creator</p>
-            <input type="text" id="authorInput">
+            <p>New Email</p>
+            <input type="text" id="newEmail">
+            <hr>
         </div>
         <div class="input-group">
-            <p>Media Type</p>
-            <select id="mediaTypeSelect">
-                <option value="movie">Movie</option>
-                <option value="tvShow">TV Show</option>
-                <option value="book">Book</option>
-                <option value="vidGame">Video Game</option>
-                <option value="manga">Manga</option>
-                <option value="anime">Anime</option>
-            </select>
+            <p>Confirm Email</p>
+            <input type="text" id="ConfirmEmail">
+            <hr>
         </div>
         <div class="input-group">
-            <p>Status</p>
-            <select id="completionSelect">
-                <option value="In Progress">In Progress</option>
-                <option value="Completed">Completed</option>
-                <option value="Dropped">Dropped</option>
-            </select>
+            <p>Old Password</p>
+            <input type="text" id="newPswd">
+            <hr>
         </div>
         <div class="input-group">
-            <p>Rating (Optional)</p>
-            <div id="rating-container">
-                <input type="text" id="ratingInput">
-                <p>/ 10</p>
-                <img id="star" src="static/icons/md_star.png" alt="A black star"/>
-            </div>
-        </div>
-        <div class="input-group">
-            <p>Review (Optional)</p>
-            <textarea id="reviewTextarea" rows="20"></textarea>
+            <p>New Password</p>
+            <input type="text" id="confirmPswd">
+            <hr>
         </div>
         <br>
         <div id="button-section">
-            <button id="submitReviewBtn">Create Review</button>
+            <button id="deleteAcc">Delete Account</button>
+            <button id="applyChange">Apply Changes</button>
             <button class="close" id="cancelBtn">Cancel</button>
         </div>
     </div>
