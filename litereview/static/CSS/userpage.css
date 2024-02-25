@@ -1,7 +1,7 @@
 /* Was advised to add this for browser reasons */
 * {
     margin: 0;
-    padding: 0 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -107,7 +107,7 @@ header {
     right: 20px;
     z-index: 1000;
     cursor: pointer;
-    box-shadow: 0 2px 4px rgb(0 0 0 / 0.3);
+    box-shadow: 0 2px 4px rgb(0 0 0 / 30%);
     font-weight: bold;
     transition: background-color 0.3s;
 }
