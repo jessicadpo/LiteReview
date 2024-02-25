@@ -3,4 +3,5 @@
 
 class PlaceHolder:
     """Placeholder class"""
-    print('This is to get pylint to shut up about the file being empty. Replace this entire file in Sprint #2')
+    print('This is to get pylint to shut up about the file being empty.'
+          'Replace this entire file in Sprint #2')
