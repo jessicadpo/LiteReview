@@ -24,4 +24,3 @@ def userpage(request):
 def temp_review_modal(request):
     """Temporary view for rendering Create Review modal form"""
     return render(request, 'temp_review_modal.html')
-
