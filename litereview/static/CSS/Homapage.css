@@ -108,21 +108,6 @@ body {
     width: 50vh;
 }
 
-.filter-btn,
-.sort-btn,
-.login-btn {
-    padding: 5px 10px;
-    background-color: #ccc;
-    border: none;
-    cursor: pointer;
-}
-
-.filter-btn:hover,
-.sort-btn:hover,
-.login-btn:hover {
-    background-color: #bbb;
-}
-
 .circle-button {
     width: 50px;
     height: 50px;
