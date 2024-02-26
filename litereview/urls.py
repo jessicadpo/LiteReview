@@ -17,6 +17,7 @@ Including another URLconf
 from django.urls import path
 from .views import index, signup_login, userpage, temp_review_modal, temp_account_modal
 
+
 urlpatterns = [
     path('', index),
     path('signup-login', signup_login),
