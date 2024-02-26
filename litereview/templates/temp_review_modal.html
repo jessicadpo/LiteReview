@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Portions of this code have been provided by W3 https://www.w3schools.com/howto/howto_css_modals.asp-->
+    <title>Basic Modal Code</title>
+    <meta charset="UTF-8">
+    <title>StatReview</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../static/CSS/temp_review_modal.css">
+</head>
+<body>
+
+<h2>Basic Modal Code</h2>
+
+<button id="myBtn">Create Review</button>
+
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="input-group">
+            <p>Title</p>
+            <input type="text" id="titleInput">
+        </div>
+        <div class="input-group">
+            <p>Creator</p>
+            <input type="text" id="authorInput">
+        </div>
+        <div class="input-group">
+            <p>Media Type</p>
+            <select id="mediaTypeSelect">
+                <option value="movie">Movie</option>
+                <option value="tvShow">TV Show</option>
+                <option value="book">Book</option>
+                <option value="vidGame">Video Game</option>
+                <option value="manga">Manga</option>
+                <option value="anime">Anime</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <p>Status</p>
+            <select id="completionSelect">
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+                <option value="Dropped">Dropped</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <p>Rating (Optional)</p>
+            <div id="rating-container">
+                <input type="text" id="ratingInput">
+                <p>/ 10</p>
+                <img id="star" src="static/icons/md_star.png" alt="A black star"/>
+            </div>
+        </div>
+        <div class="input-group">
+            <p>Review (Optional)</p>
+            <textarea id="reviewTextarea" rows="20"></textarea>
+        </div>
+        <br>
+        <div id="button-section">
+            <button id="submitReviewBtn">Create Review</button>
+            <button class="close" id="cancelBtn">Cancel</button>
+        </div>
+    </div>
+</div>
+
+
+<script src="../static/JavaScript/temp_review_modal.js"></script>
+
+</body>
+</html>
