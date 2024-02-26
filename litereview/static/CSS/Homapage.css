@@ -23,17 +23,21 @@ body {
 
 #tv {
     width: 500px;
-    height: 500px;}
+    height: 500px;
+}
 
 #book {
     width: 500px;
-    height: 500px;}
+    height: 500px;
+}
 
 #music {
     width: 500px;
-    height: 500px;}
+    height: 500px;
+}
 
-/* Icon formatting sourced from https://www.w3schools.com/css/css_grid.asp, (after many attempts) and modified to suit this project */
+/* Icon formatting sourced from https://www.w3schools.com/css/css_grid.asp,
+(after many attempts) and modified to suit this project */
 
 .icon1 {
     float: left;
@@ -58,7 +62,6 @@ body {
     grid-row-start: auto;
     grid-row-end: auto;
     grid-column-gap: 20px;
-    grid-row-gap: 20px;
 
     .icon {
         padding: 20px;
@@ -67,7 +70,7 @@ body {
         align-items: center;
         justify-content: center;
         font-size: 30px;
-        border: 5px solid rgb(0, 0, 0);
-        color: rgb(0, 0, 0);
+        border: 5px solid rgb(0 0 0);
+        color: rgb(0 0 0);
     }
 }
