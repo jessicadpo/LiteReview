@@ -57,8 +57,7 @@ body {
     margin: auto;
     display: grid;
     grid-template-columns: auto auto;
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
+    grid-gap: 20px;
     place-content: center;
 }
 
@@ -74,4 +73,3 @@ body {
     height: 15vh;
     width: 50vh;
 }
-
