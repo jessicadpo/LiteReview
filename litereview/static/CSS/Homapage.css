@@ -10,6 +10,40 @@ header {
     padding: 10px 0;
 }
 
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.webname {
+    display: inline-block; /* I don't even know if this is needed or if its even doing anything */
+    font-size: 40px;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.logo span {
+    font-size: 20px;
+}
+
+.search-bar input {
+    padding: 5px;
+    width: 200px;
+}
+
+.search-bar button {
+    padding: 5px 10px;
+    background-color: #ccc;
+    border: none;
+    cursor: pointer;
+}
+
 body {
     font-family: Arial, sans-serif;
 }
@@ -72,4 +106,42 @@ body {
     color: rgb(0 0 0);
     height: 15vh;
     width: 50vh;
+}
+
+.filter-btn,
+.sort-btn,
+.login-btn {
+    padding: 5px 10px;
+    background-color: #ccc;
+    border: none;
+    cursor: pointer;
+}
+
+.filter-btn:hover,
+.sort-btn:hover,
+.login-btn:hover {
+    background-color: #bbb;
+}
+
+.circle-button {
+    width: 50px;
+    height: 50px;
+    background-color: #007bff; /* Blue color stolen from google docs */
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 30%);
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.circle-button:hover {
+    background-color: #0000a5;
 }

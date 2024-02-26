@@ -3,12 +3,30 @@
 <!--Header section, nothing too crazy here-->
 <head>
     <meta charset="UTF-8">
-    <!--Logo will probably go here, once we have one-->
-    <!--Logo and title will need to link to homepage once the page directory is finalized-->
-    <title>Home Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiteReview</title>
+    <link rel="stylesheet" href="../static/CSS/Homapage.css">
 </head>
 <!--dropdown menu will go here once I copy what Thomas does-->
 <body>
+
+    <header>
+        <div class="top-bar">
+            <div class="logo">
+                <img src="../static/icons/burn-elmo.gif" alt="Logo">
+                <b class="webname">Website Name</b>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <button type="submit">Search</button>
+            </div>
+            <div class="user">
+                <a href="signup-login">
+                <button class="login-btn">Login / Sign Up</button>
+                </a>
+            </div>
+        </div>
+    </header>
 <!--Title of page-->
     <h1 id="title">
         <b>App Name</b>
@@ -45,5 +63,7 @@
         </div>
 	</div>
  
+    <div class="circle-button" id="circle-Button" onclick="alert('Create review form here')">+</div>
+
 </body>
 </html>
