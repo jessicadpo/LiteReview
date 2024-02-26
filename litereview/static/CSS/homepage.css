@@ -44,34 +44,23 @@ header {
     cursor: pointer;
 }
 
+.user button {
+    padding: 5px 10px;
+    background-color: #ccc;
+    border: none;
+    cursor: pointer;
+}
+
 body {
     font-family: Arial, sans-serif;
 }
 
-/* Formerly in the HTML img tag, now moved for proper styling conventions */
-
-#movie {
-    width: 500px;
-    height: 500px;
-}
-
-#tv {
-    width: 500px;
-    height: 500px;
-}
-
-#book {
-    width: 500px;
-    height: 500px;
-}
-
-#music {
-    width: 500px;
-    height: 500px;
-}
-
 /* Icon formatting sourced from https://www.w3schools.com/css/css_grid.asp,
 (after many attempts) and modified to suit this project */
+.icon-images {
+    display: flex;
+    justify-content: center;
+}
 
 .icon1 {
     float: left;
@@ -101,7 +90,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 30px;
+    font-size: 1.5em;
+    text-align: center;
     border: 5px solid rgb(0 0 0);
     color: rgb(0 0 0);
     height: 15vh;
