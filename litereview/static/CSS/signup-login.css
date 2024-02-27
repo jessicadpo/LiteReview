@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html {
+    height: 100%;
+}
+
 header {
     background-color: #333;
     color: #fff;
@@ -12,6 +16,9 @@ header {
 
 body {
     font-family: Arial, sans-serif;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
 }
 
 .top-bar {
@@ -38,6 +45,7 @@ body {
 
 .search-bar input {
     padding: 5px;
+    margin-right: 10px;
     width: 200px;
 }
 
@@ -49,20 +57,25 @@ body {
 }
 
 input[type=text] {
-    border: 2px #000000;
+    border: solid 2px #000000;
     border-radius: 4px;
     padding: 2px;
+    font-size: 1em;
+    padding: 10px;
 }
 
 .forms {
+    flex: 1 1 auto;
     display: flex;
+    flex-flow: row;
     text-align: center;
+    align-items: center;
+    font-size: 1.3em;
 }
 
 .form {
     float: left;
     width: 50%;
-    padding: 10%;
 }
 
 .subtitle {
@@ -96,12 +109,18 @@ input[type=text] {
     transition: background-color 0.3s;
 }
 
-.signin-btn,
+.signup-input,
+.login-input {
+    width: 300px;
+}
+
+.signup-btn,
 .login-btn {
     padding: 5px 10px;
     background-color: #ccc;
     border: none;
     cursor: pointer;
+    font-size: 1em;
 }
 
 .signin-btn:hover,
