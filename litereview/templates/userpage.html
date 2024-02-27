@@ -37,18 +37,25 @@
     </div>
 
     <hr>
-
-    <div class="user-reviews">
-        <div class="review">
-            <h3>Review Title 1</h3>
-            <p>Description of the review.</p>
+<div class="review-section">
+    <!-- Reviews will be in same style and will be shown based on user page -->
+    <div class="review-container">
+        <div class="review-details">
+            <h3>Title of Review</h3>
+            <div class="info-bar">
+                <div>Creator(s) of work</div>
+                <div><img class="media-type" src="../static/icons/burn-elmo.gif" alt="Media Type" style="width: 20px; height: auto;">Media Type</div>
+                <div>Date of Review</div>
+                <div>Status: Complete</div>
+                <div>
+                    <img src="../static/icons/burn-elmo.gif" alt="Star Rating" style="width: 20px; height: auto;">
+                    <span>8/10</span>
+                </div>
+                <div><button class="expand-button">Expand Review</button></div>
+            </div>
         </div>
-        <div class="review">
-            <h3>Review Title 2</h3>
-            <p>Description of the review.</p>
-        </div>
-        <!-- Reviews will be in same style and will be shown based on user page -->
     </div>
+</div>
 
     <div class="circle-button" id="circle-Button" onclick="alert('Create review form here')">+</div>
 </body>
