@@ -13,4 +13,9 @@ class User(models.Model):
 
 class Reveiw(models.Model):
     user_id = models.ForeignKey(User,on_delete=models.CASCADE, blank=False, null=False)
-
+    title = models.CharField(max_length=128, blank=False, null=False)
+    author = models.CharField(max_length=128, blank=False, null=False)
+    datetime = models.DateTimeField(auto_now_add=True, blank=False, null=False)
+    rating = models.IntegerField(blank=False, null=False)
+    text = models.CharField(max_length=1024, blank=False, null=False)
+    media_type = models.Charfield (max_length = 3, choices=MediaTypes,default=MediaTypes.MOVIE, blank=False, null=False)
