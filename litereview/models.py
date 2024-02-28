@@ -10,4 +10,7 @@ class User(models.Model):
     '''user's password (hidden/encrypted? look into)'''
     email = models.EmailField(max_length=254, blank=False, null=False)
     '''user's email, NEEDS CORRESPONDING EMAILVALIDATOR'''
-    
+
+class Reveiw(models.Model):
+    user_id = models.ForeignKey(User,on_delete=models.CASCADE, blank=False, null=False)
+
