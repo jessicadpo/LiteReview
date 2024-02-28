@@ -44,7 +44,7 @@ header {
     cursor: pointer;
 }
 
-.user button{
+.user button {
     padding: 5px 10px;
     background-color: #ccc;
     border: none;
@@ -128,10 +128,10 @@ body {
     border: 2px solid #fff;
 }
 
-.review-section-title{
-	float: left;
+.review-section-title {
+    float: left;
     width: 100%;
-    padding: 2% 2%;
+    padding: 2%;
     font-size: 20px;
     border: 2px solid #fff;
     border-bottom: 2px solid #000;
@@ -142,16 +142,16 @@ body {
     width: 13%;
     padding: 2.5% 0;
     border: 2px solid #fff;
-    border-radius: 5px 5px;
+    border-radius: 5px;
 }
 
-.username-btn{
-	float: right;
+.username-btn {
+    float: right;
     padding: 5px 10px;
     font-size: 18px;
     background-color: #ccc;
     border: 2px solid #000;
-    border-radius: 5px 5px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
