@@ -12,8 +12,9 @@ class User(models.Model):
     email = models.EmailField(max_length=254, blank=False, null=False)
     '''user's email, NEEDS CORRESPONDING EMAILVALIDATOR'''
 
-class Reveiw(models.Model):
-    """Class for Reveiw database table"""
+
+class Review(models.Model):
+    """Class for Review database table"""
     class MediaTypes(models.TextChoices):
         """List of valid media types, each self-explanatory"""
         MOVIE = "MOV", _("Movie")
