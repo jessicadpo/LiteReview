@@ -1,5 +1,4 @@
 """Module for defining models (i.e., SQLite3 database tables)"""
-from distributed import _
 from django.db import models
 
 
@@ -36,5 +35,10 @@ class Review(models.Model):
     '''rating given with the review'''
     text = models.CharField(max_length=1024, blank=False, null=False)
     '''main text of the review'''
-    media_type = models.Charfield (max_length = 3, choices=MediaTypes,default=MediaTypes.MOVIE, blank=False, null=False)
+    media_type = models.CharField(
+        max_length=3,
+        choices=MediaTypes,
+        default=MediaTypes.MOVIE,
+        blank=False,
+        null=False)
     '''type of the media - refer to class MediaTypes'''
