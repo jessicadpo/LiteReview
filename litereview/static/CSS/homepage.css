@@ -44,7 +44,7 @@ header {
     cursor: pointer;
 }
 
-.user button {
+.user button{
     padding: 5px 10px;
     background-color: #ccc;
     border: none;
@@ -124,22 +124,35 @@ body {
 .review-section {
     display: flex;
     justify-content: center;
-
+    padding: 2.5% 5%;
+    border: 2px solid #fff;
 }
 
 .review-section-title{
 	float: left;
     width: 100%;
     padding: 2% 2%;
+    font-size: 20px;
+    border: 2px solid #fff;
+    border-bottom: 2px solid #000;
 }
 
 .username {
-    float: center;
-    width: 10%;
+    float: left;
+    width: 13%;
+    padding: 2.5% 0;
+    border: 2px solid #fff;
+    border-radius: 5px 5px;
+}
 
-    padding: 0% 5%;
-    border: 2px solid #ccc;
-    border-radius: 5px 5px 0 0;
+.username-btn{
+	float: right;
+    padding: 5px 10px;
+    font-size: 18px;
+    background-color: #ccc;
+    border: 2px solid #000;
+    border-radius: 5px 5px;
+    cursor: pointer;
 }
 
 .review-details {
@@ -149,8 +162,8 @@ body {
     justify-content: space-between;
     float: right;
     width: 80%;
-    padding: 0% 5%;
-    border: 2px solid #ccc;
+    padding: 0 5%;
+    border: 2px solid #000;
     border-radius: 5px 5px 0 0;
 }
 
@@ -159,28 +172,6 @@ body {
     clear: both;
     display: table;
 }
-/*
-.review-section {
-    align-items: center;
-    padding: 10px;
-}
-
-.username{
-	margin: auto;
-    display: grid;
-    place-content: center;
-}
-
-.review-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 10px;
-    width: 100%;
-    font-size: 1.5em;
-}
-
-*/
 
 .media-type {
     width: 50px;
@@ -212,7 +203,7 @@ body {
 
 .expanded-review {
     width: 100%;
-    padding: 20px;
+    padding: 20px 10px;
     background-color: #ccc;
     border-radius: 0 0 5px 5px;
     border: 1px solid #ccc;
