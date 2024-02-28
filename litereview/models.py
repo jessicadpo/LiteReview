@@ -1,6 +1,6 @@
 """Module for defining models (i.e., SQLite3 database tables)"""
 from django.db import models
-
+from django.utils.translation import gettext_lazy as _
 
 class User(models.Model):
     """Class for User database table"""
