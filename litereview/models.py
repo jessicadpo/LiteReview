@@ -1,4 +1,5 @@
 """Module for defining models (i.e., SQLite3 database tables)"""
+from distributed import _
 from django.db import models
 
 
@@ -12,6 +13,16 @@ class User(models.Model):
     '''user's email, NEEDS CORRESPONDING EMAILVALIDATOR'''
 
 class Reveiw(models.Model):
+    """Class for Reveiw database table"""
+    class MediaTypes(models.TextChoices):
+        """List of valid media types, each self-explanatory"""
+        MOVIE = "MOV", _("Movie")
+        BOOK = "BOK", _("Book")
+        MANGA = "MGA", _("Manga/Manwha/Manhua")
+        TVSHOW = "TVS", _("TV")
+        MUSIC = "MUS", _("Music")
+        COMIC = "COM", _("Comic/Graphic Novel")
+
     user_id = models.ForeignKey(User,on_delete=models.CASCADE, blank=False, null=False)
     title = models.CharField(max_length=128, blank=False, null=False)
     author = models.CharField(max_length=128, blank=False, null=False)
