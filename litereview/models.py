@@ -25,9 +25,16 @@ class Review(models.Model):
         COMIC = "COM", _("Comic/Graphic Novel")
 
     user_id = models.ForeignKey(User,on_delete=models.CASCADE, blank=False, null=False)
+    '''foreign key set to the user that made the review'''
     title = models.CharField(max_length=128, blank=False, null=False)
+    '''title of the work'''
     author = models.CharField(max_length=128, blank=False, null=False)
+    '''main/relevant author of the work'''
     datetime = models.DateTimeField(auto_now_add=True, blank=False, null=False)
+    '''date and time of the review, set at creation'''
     rating = models.IntegerField(blank=False, null=False)
+    '''rating given with the review'''
     text = models.CharField(max_length=1024, blank=False, null=False)
+    '''main text of the review'''
     media_type = models.Charfield (max_length = 3, choices=MediaTypes,default=MediaTypes.MOVIE, blank=False, null=False)
+    '''type of the media - refer to class MediaTypes'''
