@@ -37,7 +37,7 @@ class Review(models.Model):
     '''main text of the review'''
     media_type = models.CharField(
         max_length=3,
-        choices=MediaTypes,
+        choices=MediaTypes.choices,
         default=MediaTypes.MOVIE,
         blank=False,
         null=False)
