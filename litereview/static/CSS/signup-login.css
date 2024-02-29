@@ -60,10 +60,9 @@ body {
     cursor: pointer;
 }
 
-input[type=text] {
-    border: solid 2px #000000;
+input[type="text"] {
+    border: solid 2px #000;
     border-radius: 4px;
-    padding: 2px;
     font-size: 1em;
     padding: 10px;
 }
