@@ -22,8 +22,12 @@ header {
     padding: 0 20px;
 }
 
+.top-bar a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
 .webname {
-    display: inline-block; /* I don't even know if this is needed or if its even doing anything */
     font-size: 40px;
 }
 
@@ -31,10 +35,6 @@ header {
     width: 50px;
     height: 50px;
     margin-right: 10px;
-}
-
-.logo span {
-    font-size: 20px;
 }
 
 .search-bar input {
@@ -83,7 +83,6 @@ header {
     background-color: #bbb;
 }
 
-/* Ihatethis it won't fucking work -- I TAKE IT BACK ITS WORKING, CHATGPT HELPED ME HERE */
 .circle-button {
     width: 50px;
     height: 50px;
