@@ -6,7 +6,7 @@ from .models import Review  # import all models
 #########################################################################
 # PLACEHOLDER RECORDS (DELETE BEFORE SUBMIT)
 
-"""
+'''
 PLACEHOLDER RECORDS -- DO NOT UNCOMMENT (already created in database)
 
 user1 = User(username='JSmith2000', password='password123',
@@ -17,7 +17,7 @@ review1 = Review(user_id_id=1, title='Placeholder book', author='John Smith',
                  datetime='01/01/2024', rating=8, text='fdshklfsaldkfjsdalkfjsdalkfs',
                  media_type="BOK")
 review1.save()
-"""
+'''
 
 #########################################################################
 
@@ -25,7 +25,8 @@ review1.save()
 def homepage(request):
     """View for index page (AKA homepage)"""
     # Retrieve data from database
-    all_reviews = Review.objects.all()
+    # Disabling pylint check for Review.objects because this is how it works in Django
+    all_reviews = Review.objects.all()  # pylint: disable=no-member
     all_users = User.objects.all()
 
     review_list = []
@@ -36,18 +37,22 @@ def homepage(request):
         full_record = {"username": username, "review": review}
         review_list.append(full_record)
 
-    return render(request, 'homepage.html', {"review_list":review_list})
+    return render(request, 'homepage.html', {"review_list": review_list})
 
 
 def signup_login(request):
     """View for Sign up/Login page"""
 
-    #NOTE: USERNAMES MUST BE UNIQUE (dk how to modify Django's premade constraints, and I don't care to)
+    # NOTE: USERNAMES MUST BE UNIQUE (dk how to modify Django's premade constraints
+    # and I don't care to)
     return render(request, 'signup-login.html')
 
 
 def userpage(request, username):
     """View for userpage"""
+    print(username)
+    # This is to make pylint shut up about unused username parameter for now
+    # Replace with the code later
     return render(request, 'userpage.html')
 
 
