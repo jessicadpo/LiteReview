@@ -1,15 +1,7 @@
 """Module for defining models (i.e., SQLite3 database tables)"""
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-
-class User(models.Model):
-    """Class for User database table"""
-    username = models.CharField(max_length=64, blank=False, null=False)
-    '''user defined username'''
-    password = models.CharField(max_length=64, blank=False, null=False)
-    '''user's password (hidden/encrypted? look into)'''
-    email = models.EmailField(max_length=254, blank=False, null=False)
-    '''user's email, NEEDS CORRESPONDING EMAILVALIDATOR'''
+from django.contrib.auth.models import User
 
 
 class Review(models.Model):
