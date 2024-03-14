@@ -6,6 +6,8 @@ from .models import Review  # import all models
 #########################################################################
 # PLACEHOLDER RECORDS (DELETE BEFORE SUBMIT)
 
+# pylint: disable=pointless-string-statement
+# Will be deleted before submit anyways
 '''
 PLACEHOLDER RECORDS -- DO NOT UNCOMMENT (already created in database)
 
