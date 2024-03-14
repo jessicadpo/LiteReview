@@ -20,7 +20,7 @@ from .views import homepage, signup_login, userpage, temp_review_modal, temp_acc
 urlpatterns = [
     path('', homepage),
     path('signup-login', signup_login),
-    path('user',userpage),
+    path('<str:username>', userpage, name='user-profile-page'),
     path('temp_review', temp_review_modal),
     path('temp_account', temp_account_modal)
 ]

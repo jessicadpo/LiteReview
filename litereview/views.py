@@ -1,18 +1,52 @@
 """Module for litereview views"""
 from django.shortcuts import render
+from django.contrib.auth.models import User
+from .models import Review  # import all models
+
+#########################################################################
+# PLACEHOLDER RECORDS (DELETE BEFORE SUBMIT)
+
+"""
+PLACEHOLDER RECORDS -- DO NOT UNCOMMENT (already created in database)
+
+user1 = User(username='JSmith2000', password='password123',
+             email='jsmith@gmail.com')
+user1.save()
+
+review1 = Review(user_id_id=1, title='Placeholder book', author='John Smith',
+                 datetime='01/01/2024', rating=8, text='fdshklfsaldkfjsdalkfjsdalkfs',
+                 media_type="BOK")
+review1.save()
+"""
+
+#########################################################################
 
 
 def homepage(request):
     """View for index page (AKA homepage)"""
-    return render(request, 'homepage.html')
+    # Retrieve data from database
+    all_reviews = Review.objects.all()
+    all_users = User.objects.all()
+
+    review_list = []
+    twenty_most_recent_reviews = all_reviews.order_by('-id')[:20:-1]
+    for review in twenty_most_recent_reviews:
+        user_id = review.user_id_id
+        username = all_users.get(pk=user_id).username
+        full_record = {"username": username, "review": review}
+        review_list.append(full_record)
+
+    return render(request, 'homepage.html', {"review_list":review_list})
 
 
 def signup_login(request):
     """View for Sign up/Login page"""
+
+    #NOTE: USERNAMES MUST BE UNIQUE (dk how to modify Django's premade constraints, and I don't care to)
     return render(request, 'signup-login.html')
 
 
-def userpage(request):
+def userpage(request, username):
     """View for userpage"""
     return render(request, 'userpage.html')
 

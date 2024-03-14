@@ -60,9 +60,10 @@
  	<b class="review-section-title">Recent Reviews</b><br><br><br>
     <div class="review-section">
         <!-- Reviews will be in same style and will be shown based on user page -->
+        {% for rev in review_list %}
         <div class="review-item">
-            <a href="user">
-                <button class="username-btn">Username</button>
+            <a href="{% url 'user-profile-page' rev.username %}">
+                <button class="username-btn">{{ rev.username }}</button>
             </a>
             <div class="review-container">
                 <div class="review-details">
@@ -84,6 +85,7 @@
                 </div>
             </div>
         </div>
+        {% endfor %}
     </div>
 
 </body>
