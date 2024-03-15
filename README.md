@@ -11,12 +11,13 @@ A lightweight web application titled LiteReview. In the same vein as social medi
 
 By the end of March 2024, we will have designed, developed, and implemented both the front- and back-end of our web application to fulfill the needs of entertainment media consumers looking for a single, centralized platform with comprehensive media tracking and review features; the product will be ready to attract and serve a growing number of users and be well-positioned for monetization through advertisements. The front-end will constitute a simple, easy-to-use, and visually appealing user interface with search bar, sort, and filter functionalities. The back-end will involve a server-side database supporting the following user activities: account creation, automated profile page creation, login authentication, and postings (i.e., reviews).
 
-**Definition of Done (Sprint #1)**
-- HTML and CSS layouts match the wireframes provided in Deliverable 1 (Project Proposal)
-- No known defects
+**Definition of Done (Sprint #2)**
+- Buttons behave as expected/perform expected functions
+- Website has colors (i.e., is not light mode) & official icons (not placeholders)
+- No known defects/issues/bugs/glitches
 - “python manage.py runserver” executes with no issues
 - All branches have been merged to main branch
-  - By definition, this means all pull requests have been peer-reviewed & have passed all linters.
+  - By definition, this means all pull requests passed all linters & automatic tests, and have been peer-reviewed.
 
 **End-Sprint Screenshot(s)**
 ![homepage-sprint-1.png](screenshots%2Fhomepage-sprint-1.png)

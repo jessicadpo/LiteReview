@@ -60,30 +60,32 @@
  	<b class="review-section-title">Recent Reviews</b><br><br><br>
     <div class="review-section">
         <!-- Reviews will be in same style and will be shown based on user page -->
+        {% for rev in review_list %}
         <div class="review-item">
-            <a href="user">
-                <button class="username-btn">Username</button>
+            <a href="{% url 'user-profile-page' rev.username %}">
+                <button class="username-btn">{{ rev.username }}</button>
             </a>
             <div class="review-container">
                 <div class="review-details">
                     <div class="title-creator">
-                        <h3>Title of Review</h3>
-                        <div>Creator(s) of work</div>
+                        <h3>{{ rev.review.title }}</h3>
+                        <div>{{ rev.review.author }}</div>
                     </div>
-                    <div><img class="media-type" src="../static/icons/burn-elmo.gif" alt="Media Type" style="width: 20px; height: auto;">Media Type</div>
-                    <div>Date of Review</div>
+                    <div><img class="media-type" src="../static/icons/burn-elmo.gif" alt="Media Type" style="width: 20px; height: auto;">{{ rev.review.media_type }}</div>
+                    <div>{{ rev.review.datetime }}</div>
                     <div>Status: Complete</div>
                     <div>
                         <img src="../static/icons/md_star.png" alt="Star Rating" style="width: 20px; height: auto;">
-                        <span>8/10</span>
+                        <span>{{ rev.review.rating}} /10</span>
                     </div>
                     <div><button class="expand-button">Expand Review</button></div>
                 </div>
                 <div class="expanded-review">
-                   <p>This section is for review text, allowing users to elaborate on their star rating.</p>
+                   <p>{{ rev.review.text }}</p>
                 </div>
             </div>
         </div>
+        {% endfor %}
     </div>
 
 </body>
