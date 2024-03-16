@@ -6,7 +6,7 @@ switch(MediaTypes.choices()) {
         choices = "../icons/BOK.svg"
     break;
     case "MGA":
-        choices = "../icons/burn-elmo.gif"
+        choices = "../icons/MGA.svg"
     break;
     case "TVS":
         choices = "../icons/TVS.svg"
@@ -15,7 +15,7 @@ switch(MediaTypes.choices()) {
         choices = "../icons/MUS.svg"
     break;
     case "COM":
-        choices = "../icons/burn-elmo.gif"
+        choices = "../icons/COM.svg"
     break;
     default:
         choices = "../icons/burn-elmo.gif"
