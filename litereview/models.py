@@ -15,7 +15,7 @@ class Review(models.Model):
         MUSIC = "MUS", _("Music")
         COMIC = "COM", _("Comic/Graphic Novel")
 
-    user_id = models.ForeignKey(User,on_delete=models.CASCADE, blank=False, null=False)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, blank=False, null=False)
     '''foreign key set to the user that made the review'''
     title = models.CharField(max_length=128, blank=False, null=False)
     '''title of the work'''
