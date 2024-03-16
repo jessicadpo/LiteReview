@@ -188,6 +188,20 @@ textarea {
     background-color: #0000a5;
 }
 
+#rating-container {
+    display: flex;
+    align-items: center;
+}
+
+#rating-container input {
+    margin-right: 10px;
+}
+
+#star {
+    height: 30px; /* Adjust the height of the star as needed */
+    width: auto; /* Let the width adjust automatically based on the height */
+}
+
 .review-section-title {
     float: left;
     width: 100%;
