@@ -7,10 +7,11 @@
 
 body {
     font-family: Arial, sans-serif;
+    background-color: #001C34FF
 }
 
 header {
-    background-color: #333;
+    background-color: #004077;
     color: #fff;
     padding: 10px 0;
 }
@@ -86,7 +87,7 @@ header {
 .circle-button {
     width: 50px;
     height: 50px;
-    background-color: #007bff; /* Blue color stolen from google docs */
+    background-color: #004077; /* Blue color stolen from google docs */
     color: #fff;
     border: none;
     border-radius: 50%;
