@@ -36,7 +36,7 @@
             <img id="movie" src="static/icons/MOV.svg" alt="A clapperboard"/>
             </div>
             <div class="icon1">
-            <img id="tv" src="static/icons/television-icon.svg" alt="A television"/>
+            <img id="tv" src="static/icons/TVS.svg" alt="A television"/>
             </div>
             <div class="icon1">
             <img id="book" src="static/icons/BOK.svg" alt="A book"/>
@@ -71,7 +71,7 @@
                         <h3>{{ rev.review.title }}</h3>
                         <div>{{ rev.review.author }}</div>
                     </div>
-                    <div><img class="media-type" src="../static/icons/burn-elmo.gif" alt="Media Type" style="width: 20px; height: auto;">{{ rev.review.media_type }}</div>
+                    <div><img class="media-type" src="{{ rev.media_type_icon }}" alt="Media Type" style="width: 20px; height: auto;">{{ rev.media_type }}</div>
                     <div>{{ rev.review.datetime }}</div>
                     <div>Status: Complete</div>
                     <div>
