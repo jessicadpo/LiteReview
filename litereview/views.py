@@ -38,7 +38,8 @@ def homepage(request):
         username = all_users.get(pk=user_id).username
         media_type = review.get_media_type_display()
         media_type_icon = get_media_icon(review.media_type)
-        full_record = {"username": username, "review": review, "media_type": media_type, "media_type_icon": media_type_icon }
+        full_record = {"username": username, "review": review, "media_type": media_type,
+                       "media_type_icon": media_type_icon}
         review_list.append(full_record)
 
     return render(request, 'homepage.html', {"review_list": review_list})
