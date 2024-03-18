@@ -90,7 +90,7 @@ class Icon:
             "MUS": "../static/icons/MUS.svg",
             "COM": "../static/icons/COM.svg"
         }
-        if type(media_name) is not str:
+        if isinstance(media_name, str) is False:
             raise TypeError  # Function stops here if error occurs
         if media_name not in icon_paths:
             raise KeyError  # Function stops here if error occurs

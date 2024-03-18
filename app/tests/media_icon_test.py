@@ -9,7 +9,7 @@ class TestMediaIcon(TestCase):
         self.icon = Icon()
 
     def test_icon(self):
-        # Test if the correct string/link is returned
+        """Test if the correct string/link is returned"""
         self.assertIn(self.icon.get_media_icon("MOV"), "../static/icons/MOV.svg")
         self.assertIn(self.icon.get_media_icon("BOK"), "../static/icons/BOK.svg")
         self.assertIn(self.icon.get_media_icon("MGA"), "../static/icons/MGA.svg")
@@ -18,22 +18,21 @@ class TestMediaIcon(TestCase):
         self.assertIn(self.icon.get_media_icon("COM"), "../static/icons/COM.svg")
 
     def test_return_type(self):
-        # Test that the function returns a string
+        """Test that the function returns a string"""
         self.assertIsInstance(self.icon.get_media_icon("MOV"), str)
 
     def test_input_type_error(self):
-        # Test that the function raises a TypeError when the input parameter is not a string
+        """Test that the function raises a TypeError when the input parameter is not a string"""
         with self.assertRaises(TypeError):
             self.icon.get_media_icon(1)
 
     def test_input_key_error(self):
-        # Test that the function raises a KeyError when the input parameter is not a valid media type
+        """Test that the function raises a KeyError when the input parameter is not a valid media type"""
         with self.assertRaises(KeyError):
             self.icon.get_media_icon("ANI")
 
     def test_logging(self):
-        # Test that the logger works correctly
-        result = self.icon.get_media_icon("MOV")
+        """Test that the logger works correctly"""
+        self.icon.get_media_icon("MOV")
         log = self.icon.logger.get_last_log()
         self.assertIn("Retrieved link to icon for media type MOV = ../static/icons/MOV.svg", log)
-
