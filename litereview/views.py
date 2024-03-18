@@ -70,7 +70,7 @@ def temp_account_modal(request):
     return render(request, 'temp_account_modal.html')
 
 
-class Icon:  # pylint: disable=too-few-public-methods
+class Icon:
     """
     Needs to be a class for integration testing.
     Disabling pylint error since the only reason I'm making this a class
@@ -93,3 +93,6 @@ class Icon:  # pylint: disable=too-few-public-methods
             raise TypeError  # Function stops here if error occurs
         if media_name not in icon_paths:
             raise KeyError  # Function stops here if error occurs
+        icon_path = icon_paths.get(media_name)
+        self.logger.log_message(f"Retrieved link to icon for media type {media_name} = {icon_path}")
+        return icon_path
