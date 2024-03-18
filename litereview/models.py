@@ -1,15 +1,7 @@
 """Module for defining models (i.e., SQLite3 database tables)"""
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-
-class User(models.Model):
-    """Class for User database table"""
-    username = models.CharField(max_length=64, blank=False, null=False)
-    '''user defined username'''
-    password = models.CharField(max_length=64, blank=False, null=False)
-    '''user's password (hidden/encrypted? look into)'''
-    email = models.EmailField(max_length=254, blank=False, null=False)
-    '''user's email, NEEDS CORRESPONDING EMAILVALIDATOR'''
+from django.contrib.auth.models import User
 
 
 class Review(models.Model):
@@ -23,7 +15,7 @@ class Review(models.Model):
         MUSIC = "MUS", _("Music")
         COMIC = "COM", _("Comic/Graphic Novel")
 
-    user_id = models.ForeignKey(User,on_delete=models.CASCADE, blank=False, null=False)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, blank=False, null=False)
     '''foreign key set to the user that made the review'''
     title = models.CharField(max_length=128, blank=False, null=False)
     '''title of the work'''
