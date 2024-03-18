@@ -1,7 +1,4 @@
-body {
-    font-family: Arial, Helvetica, sans-serif;
-}
-
+/* CSS changes for the modal */
 .modal {
     display: none;
     position: fixed;
@@ -56,24 +53,6 @@ textarea {
     height: 50px;
 }
 
-#rating-container {
-    display: grid;
-    grid-template-columns: auto auto 50px;
-    grid-auto-rows: 100%;
-    grid-gap: 10px;
-    min-width: 350px;
-}
-
-#rating-container p {
-    font-size: 3em;
-    min-width: 0;
-    margin: 0;
-}
-
-#star {
-    height: 50px;
-}
-
 #button-section {
     display: flex;
     justify-content: center;
@@ -83,4 +62,42 @@ textarea {
     font-size: 1.5em;
     padding: 10px 30px;
     margin: 0 10px;
+}
+
+/* CSS for the modal button */
+.circle-button {
+    width: 50px;
+    height: 50px;
+    background-color: #007bff; /* Blue color stolen from google docs */
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 30%);
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.circle-button:hover {
+    background-color: #0000a5;
+}
+
+#rating-container {
+    display: flex;
+    align-items: center;
+}
+
+#rating-container input {
+    margin-right: 10px;
+}
+
+#star {
+    height: 30px;
+    width: auto;
 }
