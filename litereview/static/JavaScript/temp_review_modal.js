@@ -1,6 +1,6 @@
 // Portions of this code have been provided by W3 https://www.w3schools.com/howto/howto_css_modals.asp
 // Get the modal
-var modal = document.getElementById("myModal");
+var modal = document.getElementById("circle-Button");
 
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");

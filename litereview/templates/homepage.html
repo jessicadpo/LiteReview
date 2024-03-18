@@ -9,53 +9,103 @@
 </head>
 
 <body>
-
-      <header>
-        <div class="top-bar">
-            <a href="http://127.0.0.1:8000/" class="logo">
-                <img src="../static/icons/lite-logo.png" alt="Logo">
-                <b class="webname">Website Name</b>
-            </a>
-            <div class="search-bar">
-                <input type="text" placeholder="Search...">
-                <button type="submit">Search</button>
-            </div>
-            <div class="user">
-                <a href="signup-login">
+<header>
+    <div class="top-bar">
+        <a href="http://127.0.0.1:8000/" class="logo">
+            <img src="../static/icons/burn-elmo.gif" alt="Logo">
+            <b class="webname">Website Name</b>
+        </a>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+            <button type="submit">Search</button>
+        </div>
+        <div class="user">
+            <a href="signup-login">
                 <button class="login-btn">Login / Sign Up</button>
-                </a>
-            </div>
+            </a>
         </div>
-    </header>
-    
-<!--Icons inside this div, to be split further-->
-   <div id="icons" class="closed">
-        <!--Image icons inside this div-->
-		<div class="icon-images">
-            <div class="icon1">
-            <img id="movie" src="static/icons/MOV.svg" alt="A clapperboard"/>
-            </div>
-            <div class="icon1">
-            <img id="tv" src="static/icons/television-icon.svg" alt="A television"/>
-            </div>
-            <div class="icon1">
-            <img id="book" src="static/icons/BOK.svg" alt="A book"/>
-            </div>
-            <div class="icon1">
-            <img id="music" src="static/icons/MUS.svg" alt="A music note in a box"/>
-			</div>
-		</div>
-        <!--Text icons inside this div-->
-        <div class="icon-text">
-            <div class="icon">Track your progress</div>
-            <div class="icon">Write reviews on the things you love (or hate) the most</div>
-            <div class="icon">Rate on a 10-star scale (with halves)</div>
-            <div class="icon">See what others are up to</div>
-        </div>
-	</div>
- 
-    <div class="circle-button" id="circle-Button" onclick="alert('Create review form here')">+</div>
+    </div>
+</header>
 
+<!--Icons inside this div, to be split further-->
+<div id="icons" class="closed">
+    <!--Image icons inside this div-->
+    <div class="icon-images">
+        <div class="icon1">
+            <img id="movie" src="static/icons/movie-play-icon.svg" alt="A clapperboard"/>
+        </div>
+        <div class="icon1">
+            <img id="tv" src="static/icons/television-icon.svg" alt="A television"/>
+        </div>
+        <div class="icon1">
+            <img id="book" src="static/icons/book-open-icon.svg" alt="A book"/>
+        </div>
+        <div class="icon1">
+            <img id="music" src="static/icons/music-box-multiple-icon.svg" alt="A music note in a box"/>
+        </div>
+    </div>
+    <!--Text icons inside this div-->
+    <div class="icon-text">
+        <div class="icon">Track your progress</div>
+        <div class="icon">Write reviews on the things you love (or hate) the most</div>
+        <div class="icon">Rate on a 10-star scale (with halves)</div>
+        <div class="icon">See what others are up to</div>
+    </div>
+</div>
+
+<!-- Modal Button -->
+<button class="circle-button" id="circle-Button">+</button>
+
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="input-group">
+            <p>Title</p>
+            <input type="text" id="titleInput">
+        </div>
+        <div class="input-group">
+            <p>Creator</p>
+            <input type="text" id="authorInput">
+        </div>
+        <div class="input-group">
+            <p>Media Type</p>
+            <select id="mediaTypeSelect">
+                <option value="movie">Movie</option>
+                <option value="tvShow">TV Show</option>
+                <option value="book">Book</option>
+                <option value="comicBook">Comic Book</option>
+                <option value="manga">Manga</option>
+                <option value="music">Music</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <p>Status</p>
+            <select id="completionSelect">
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+                <option value="Dropped">Dropped</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <p>Rating (Optional)</p>
+            <div id="rating-container">
+                <input type="text" id="ratingInput">
+                <p>/ 10</p>
+                <img id="star" src="static/icons/md_star.png" alt="A black star"/>
+            </div>
+        </div>
+        <div class="input-group">
+            <p>Review (Optional)</p>
+            <textarea id="reviewTextarea" rows="20"></textarea>
+        </div>
+        <br>
+        <div id="button-section">
+            <button id="submitReviewBtn">Create Review</button>
+            <button class="close" id="cancelBtn">Cancel</button>
+        </div>
+    </div>
+</div>
  	<br>
  	<b class="review-section-title">Recent Reviews</b><br><br><br>
     <div class="review-section">
@@ -83,10 +133,13 @@
                 <div class="expanded-review">
                    <p>{{ rev.review.text }}</p>
                 </div>
-            </div>
         </div>
         {% endfor %}
     </div>
+</div>
+
+<script src="../static/JavaScript/homepage.js"></script>
+
 
 </body>
 </html>
