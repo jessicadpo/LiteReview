@@ -70,7 +70,7 @@ def temp_account_modal(request):
     return render(request, 'temp_account_modal.html')
 
 
-class Icon:
+class Icon:  # pylint: disable=too-few-public-methods
     """
     Needs to be a class for integration testing.
     Disabling pylint error since the only reason I'm making this a class
