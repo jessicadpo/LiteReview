@@ -41,7 +41,7 @@
 7. `git checkout task-branch-name` Switch back to your task branch (VERY IMPORTANT)
 8. `git merge main` Merge local main branch into your task branch.
 9. If there are merge conflicts, resolve (if you can) or ask for clarifications on Discord.
-10. [SKIP THIS STEP FOR SPRINT #1] ~~`python -m unittest discover` Make sure your task branch passes everyone's test.~~
+10. `python manage.py test app` Make sure your task branch passes the automated tests.
 11. `git push origin task-branch-name` DO NOT WRITE "git push origin main". DO NOT WRITE "git merge task-branch-name".
 12. In GitHub: Make sure your code passes all linters & tests
 13. In GitHub: If the code is complete and tested, create a pull request.

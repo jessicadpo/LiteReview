@@ -1,7 +1,8 @@
 """Module for litereview views"""
 from django.shortcuts import render
 from django.contrib.auth.models import User
-from .models import Review  # import all models
+from .models import Review
+from .logger import Logger
 
 #########################################################################
 # PLACEHOLDER RECORDS (DELETE BEFORE SUBMIT)
@@ -35,7 +36,7 @@ def homepage(request):
         user_id = review.user_id_id
         username = all_users.get(pk=user_id).username
         media_type = review.get_media_type_display()
-        media_type_icon = get_media_icon(review.media_type)
+        media_type_icon = Icon.get_media_icon(Icon(), review.media_type)
         full_record = {"username": username, "review": review, "media_type": media_type,
                        "media_type_icon": media_type_icon}
         review_list.append(full_record)
@@ -58,19 +59,40 @@ def userpage(request, username):
     # Replace with the code later
     return render(request, 'userpage.html')
 
-def get_media_icon(media_name):
-    """media_name is a string with the values MOV, BOK, MGA, TVS, MUS, or COM"""
 
-    icon_paths = {
-        "MOV": "../static/icons/MOV.svg",
-        "BOK": "../static/icons/BOK.svg",
-        "MGA": "../static/icons/MGA.svg",
-        "TVS": "../static/icons/TVS.svg",
-        "MUS": "../static/icons/MUS.svg",
-        "COM": "../static/icons/COM.svg"
-    }
-    if media_name not in icon_paths:
-        icon_path = "ERROR: Invalid media type"
-    else:
+def temp_review_modal(request):
+    """Temporary view for rendering Create Review modal form"""
+    return render(request, 'temp_review_modal.html')
+
+
+def temp_account_modal(request):
+    """Temporary view for rendering Create Review modal form"""
+    return render(request, 'temp_account_modal.html')
+
+
+class Icon:  # pylint: disable=too-few-public-methods
+    """
+    Needs to be a class for integration testing.
+    Disabling pylint error since the only reason I'm making this a class
+    is due to prof's requirements for automated tests
+    """
+    def __init__(self):
+        self.logger = Logger()
+
+    def get_media_icon(self, media_name):
+        """media_name is a string with the values MOV, BOK, MGA, TVS, MUS, or COM"""
+        icon_paths = {
+            "MOV": "../static/icons/MOV.svg",
+            "BOK": "../static/icons/BOK.svg",
+            "MGA": "../static/icons/MGA.svg",
+            "TVS": "../static/icons/TVS.svg",
+            "MUS": "../static/icons/MUS.svg",
+            "COM": "../static/icons/COM.svg"
+        }
+        if isinstance(media_name, str) is False:
+            raise TypeError  # Function stops here if error occurs
+        if media_name not in icon_paths:
+            raise KeyError  # Function stops here if error occurs
         icon_path = icon_paths.get(media_name)
-    return icon_path
+        self.logger.log_message(f"Retrieved link to icon for media type {media_name} = {icon_path}")
+        return icon_path
