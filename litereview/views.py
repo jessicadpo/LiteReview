@@ -69,16 +69,17 @@ def temp_account_modal(request):
     """Temporary view for rendering Create Review modal form"""
     return render(request, 'temp_account_modal.html')
 
+
 def get_media_icon(media_name):
     """media_name is a string with the values MOV, BOK, MGA, TVS, MUS, or COM"""
 
     icon_paths = {
-        "MOV":"../static/icons/MOV.svg",
-        "BOK":"../static/icons/BOK.svg",
-        "MGA":"../static/icons/MGA.svg",
-        "TVS":"../static/icons/TVS.svg",
-        "MUS":"../static/icons/MUS.svg",
-        "COM":"../static/icons/COM.svg"
+        "MOV": "../static/icons/MOV.svg",
+        "BOK": "../static/icons/BOK.svg",
+        "MGA": "../static/icons/MGA.svg",
+        "TVS": "../static/icons/TVS.svg",
+        "MUS": "../static/icons/MUS.svg",
+        "COM": "../static/icons/COM.svg"
     }
     if media_name not in icon_paths:
         icon_path = "ERROR: Invalid media type"
