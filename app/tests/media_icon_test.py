@@ -22,12 +22,18 @@ class TestMediaIcon(TestCase):
         self.assertIsInstance(self.icon.get_media_icon("MOV"), str)
 
     def test_input_type_error(self):
-        """Test that the function raises a TypeError when the input parameter is not a string"""
+        """
+        Test that the function raises a TypeError
+        when the input parameter is not a string
+        """
         with self.assertRaises(TypeError):
             self.icon.get_media_icon(1)
 
     def test_input_key_error(self):
-        """Test that the function raises a KeyError when the input parameter is not a valid media type"""
+        """
+        Test that the function raises a KeyError
+        when the input parameter is not a valid media type
+        """
         with self.assertRaises(KeyError):
             self.icon.get_media_icon("ANI")
 

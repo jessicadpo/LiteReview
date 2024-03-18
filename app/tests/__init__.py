@@ -9,10 +9,10 @@ import pkgutil
 import unittest
 
 
-def create_test_case_class(obj):
+def create_test_case_class(my_object):
     """Alternative to using exec (This is safer)"""
-    class_name = obj.__name__
-    return type(class_name, (obj,), {})
+    class_name = my_object.__name__
+    return type(class_name, (my_object,), {})
 
 
 for loader, module_name, is_pkg in pkgutil.walk_packages(__path__):
@@ -21,4 +21,3 @@ for loader, module_name, is_pkg in pkgutil.walk_packages(__path__):
         obj = getattr(module, name)
         if isinstance(obj, type) and issubclass(obj, unittest.case.TestCase):
             globals()[obj.__name__] = create_test_case_class(obj)
-

@@ -5,7 +5,8 @@ import datetime
 class Logger:
     """
     Logger for unit tests (from Prof. Brunet's GitHub code
-    (https://github.com/Carleton-BIT/unit-and-integration-testing-example/blob/fix-tests/calculator/logger.py)
+    (https://github.com/Carleton-BIT/unit-and-integration-testing-example/
+    blob/fix-tests/calculator/logger.py)
     """
     def __init__(self):
         self.logs = []
