@@ -198,8 +198,8 @@ textarea {
 }
 
 #star {
-    height: 30px; /* Adjust the height of the star as needed */
-    width: auto; /* Let the width adjust automatically based on the height */
+    height: 30px;
+    width: auto;
 }
 
 .review-section-title {

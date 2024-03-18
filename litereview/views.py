@@ -11,7 +11,6 @@ from .logger import Logger
 # Will be deleted before submit anyways
 '''
 PLACEHOLDER RECORDS -- DO NOT UNCOMMENT (already created in database)
-
 user1 = User(username='JSmith2000', password='password123',
              email='jsmith@gmail.com')
 user1.save()
@@ -21,7 +20,6 @@ review1 = Review(user_id_id=1, title='Placeholder book', author='John Smith',
                  media_type="BOK")
 review1.save()
 '''
-
 #########################################################################
 
 
@@ -95,7 +93,3 @@ class Icon:  # pylint: disable=too-few-public-methods
             raise TypeError  # Function stops here if error occurs
         if media_name not in icon_paths:
             raise KeyError  # Function stops here if error occurs
-
-        icon_path = icon_paths.get(media_name)
-        self.logger.log_message(f"Retrieved link to icon for media type {media_name} = {icon_path}")
-        return icon_path
