@@ -36,7 +36,10 @@ def homepage(request):
     for review in twenty_most_recent_reviews:
         user_id = review.user_id_id
         username = all_users.get(pk=user_id).username
-        full_record = {"username": username, "review": review}
+        media_type = review.get_media_type_display()
+        media_type_icon = get_media_icon(review.media_type)
+        full_record = {"username": username, "review": review, "media_type": media_type,
+                       "media_type_icon": media_type_icon}
         review_list.append(full_record)
 
     return render(request, 'homepage.html', {"review_list": review_list})
@@ -62,6 +65,25 @@ def temp_review_modal(request):
     """Temporary view for rendering Create Review modal form"""
     return render(request, 'temp_review_modal.html')
 
+
 def temp_account_modal(request):
     """Temporary view for rendering Create Review modal form"""
     return render(request, 'temp_account_modal.html')
+
+
+def get_media_icon(media_name):
+    """media_name is a string with the values MOV, BOK, MGA, TVS, MUS, or COM"""
+
+    icon_paths = {
+        "MOV": "../static/icons/MOV.svg",
+        "BOK": "../static/icons/BOK.svg",
+        "MGA": "../static/icons/MGA.svg",
+        "TVS": "../static/icons/TVS.svg",
+        "MUS": "../static/icons/MUS.svg",
+        "COM": "../static/icons/COM.svg"
+    }
+    if media_name not in icon_paths:
+        icon_path = "ERROR: Invalid media type"
+    else:
+        icon_path = icon_paths.get(media_name)
+    return icon_path
