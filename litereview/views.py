@@ -10,7 +10,6 @@ from .models import Review  # import all models
 # Will be deleted before submit anyways
 '''
 PLACEHOLDER RECORDS -- DO NOT UNCOMMENT (already created in database)
-
 user1 = User(username='JSmith2000', password='password123',
              email='jsmith@gmail.com')
 user1.save()
@@ -20,7 +19,6 @@ review1 = Review(user_id_id=1, title='Placeholder book', author='John Smith',
                  media_type="BOK")
 review1.save()
 '''
-
 #########################################################################
 
 
@@ -59,17 +57,6 @@ def userpage(request, username):
     # This is to make pylint shut up about unused username parameter for now
     # Replace with the code later
     return render(request, 'userpage.html')
-
-
-def temp_review_modal(request):
-    """Temporary view for rendering Create Review modal form"""
-    return render(request, 'temp_review_modal.html')
-
-
-def temp_account_modal(request):
-    """Temporary view for rendering Create Review modal form"""
-    return render(request, 'temp_account_modal.html')
-
 
 def get_media_icon(media_name):
     """media_name is a string with the values MOV, BOK, MGA, TVS, MUS, or COM"""

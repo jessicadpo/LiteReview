@@ -93,25 +93,6 @@ input[type="text"] {
     display: table;
 }
 
-.circle-button {
-    width: 50px;
-    height: 50px;
-    background-color: #007bff; /* Blue color stolen from google docs */
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 50px;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgb(0 0 0 / 30%);
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
 .signup-input,
 .login-input {
     width: 300px;
@@ -129,8 +110,4 @@ input[type="text"] {
 .signin-btn:hover,
 .login-btn:hover {
     background-color: #bbb;
-}
-
-.circle-button:hover {
-    background-color: #0000a5;
 }
