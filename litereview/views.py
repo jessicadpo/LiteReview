@@ -77,7 +77,7 @@ def get_media_icon(media_name):
         "MUS":"../static/icons/MUS.svg",
         "COM":"../static/icons/COM.svg"
     }
-    if media_name not in icon_paths.keys():
+    if media_name not in icon_paths:
         icon_path = "ERROR: Invalid media type"
     else:
         icon_path = icon_paths.get(media_name)
