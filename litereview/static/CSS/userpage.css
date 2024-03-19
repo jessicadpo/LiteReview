@@ -157,6 +157,7 @@ header {
     border: 1px solid #ccc;
     border-radius: 5px 5px 0 0;
     background-color: #005ba8;
+    color: #ccc;
 }
 
 .expand-button {
@@ -188,6 +189,7 @@ header {
     border-radius: 0 0 5px 5px;
     border: 1px solid #ccc;
     border-top-style: none;
+    color: #ccc;
 }
 
 /* Stop copying about here */

@@ -241,6 +241,7 @@ textarea {
     margin-top: 10px;
     font-size: 1.5em;
     width: 90%;
+    background-color: #005ba8;
 }
 
 .username-btn {
@@ -263,7 +264,8 @@ textarea {
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px 5px 0 0;
-    color: #fff;
+    background-color: #005ba8;
+    color: #ccc;
 }
 
 .media-type {
@@ -297,8 +299,9 @@ textarea {
 .expanded-review {
     width: 100%;
     padding: 20px 10px;
-    background-color: #ccc;
+    background-color: #004077;
     border-radius: 0 0 5px 5px;
     border: 1px solid #ccc;
     border-top-style: none;
+    color: #ccc;
 }
