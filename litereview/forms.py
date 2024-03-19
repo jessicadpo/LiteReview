@@ -1,3 +1,5 @@
+""""Module containing forms for the LiteReview"""
+
 from django import forms
 
 
