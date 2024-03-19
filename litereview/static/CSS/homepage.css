@@ -5,7 +5,7 @@
 }
 
 header {
-    background-color: #333;
+    background-color: #004077;
     color: #fff;
     padding: 10px 0;
 }
@@ -24,6 +24,7 @@ header {
 
 .webname {
     font-size: 40px;
+    color: rgb(255 255 255);
 }
 
 .logo img {
@@ -53,6 +54,7 @@ header {
 
 body {
     font-family: Arial, sans-serif;
+    background-color: #001c34ff;
 }
 
 /* Icon formatting sourced from https://www.w3schools.com/css/css_grid.asp,
@@ -92,8 +94,8 @@ body {
     justify-content: center;
     font-size: 1.5em;
     text-align: center;
-    border: 5px solid rgb(0 0 0);
-    color: rgb(0 0 0);
+    border: 5px solid rgb(0 64 119);
+    color: rgb(192 192 192);
     height: 15vh;
     width: 50vh;
 }
@@ -186,7 +188,7 @@ textarea {
 }
 
 .circle-button:hover {
-    background-color: #0000a5;
+    background-color: #004077;
 }
 
 #rating-container {
@@ -209,7 +211,8 @@ textarea {
     font-size: 2em;
     padding: 20px;
     margin-top: 100px;
-    border-bottom: 2px solid #000;
+    border-bottom: 2px solid #005ba8;
+    color: #fff;
 }
 
 .review-section {
@@ -217,6 +220,7 @@ textarea {
     flex-direction: column;
     justify-content: center;
     padding: 2.5% 5%;
+    background-color: #001c34;
 }
 
 .review-item {
@@ -239,6 +243,7 @@ textarea {
     margin-top: 10px;
     font-size: 1.5em;
     width: 90%;
+    background-color: #005ba8;
 }
 
 .username-btn {
@@ -261,6 +266,8 @@ textarea {
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px 5px 0 0;
+    background-color: #005ba8;
+    color: #ccc;
 }
 
 .media-type {
@@ -270,15 +277,15 @@ textarea {
 }
 
 .expand-button {
-    background-color: #7e7e7e;
-    color: #fff;
+    background-color: #ccc;
+    color: #000;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
 }
 
 .expand-button:hover {
-    background-color: #414141;
+    background-color: #bbb;
 }
 
 .info-bar {
@@ -294,8 +301,9 @@ textarea {
 .expanded-review {
     width: 100%;
     padding: 20px 10px;
-    background-color: #ccc;
+    background-color: #004077;
     border-radius: 0 0 5px 5px;
     border: 1px solid #ccc;
     border-top-style: none;
+    color: #ccc;
 }
