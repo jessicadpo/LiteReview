@@ -170,7 +170,7 @@ textarea {
 .circle-button {
     width: 50px;
     height: 50px;
-    background-color: #004077; /* Blue color stolen from google docs */
+    background-color: #007bff; /* Blue color stolen from google docs */
     color: #fff;
     border: none;
     border-radius: 50%;
@@ -187,7 +187,7 @@ textarea {
 }
 
 .circle-button:hover {
-    background-color: #0000a5;
+    background-color: #004077;
 }
 
 #rating-container {
@@ -276,15 +276,15 @@ textarea {
 }
 
 .expand-button {
-    background-color: #7e7e7e;
-    color: #fff;
+    background-color: #ccc;
+    color: #000;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
 }
 
 .expand-button:hover {
-    background-color: #414141;
+    background-color: #bbb;
 }
 
 .info-bar {
