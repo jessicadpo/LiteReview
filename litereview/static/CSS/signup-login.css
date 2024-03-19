@@ -60,13 +60,6 @@ body {
     cursor: pointer;
 }
 
-input[type="text"] {
-    border: solid 2px #000;
-    border-radius: 4px;
-    font-size: 1em;
-    padding: 10px;
-}
-
 .forms {
     flex: 1 1 auto;
     display: flex;
@@ -74,6 +67,23 @@ input[type="text"] {
     text-align: center;
     align-items: center;
     font-size: 1.3em;
+}
+
+.signup-input,
+.login-input {
+    width: 300px;
+    border: solid 2px #000;
+    border-radius: 4px;
+    font-size: 1em;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.errorlist li {
+    color: red;
+    text-align: left;
+    margin-left: 25%;
 }
 
 .form {
@@ -91,11 +101,6 @@ input[type="text"] {
     content: "";
     clear: both;
     display: table;
-}
-
-.signup-input,
-.login-input {
-    width: 300px;
 }
 
 .signup-btn,
