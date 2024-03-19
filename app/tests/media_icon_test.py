@@ -10,12 +10,12 @@ class TestMediaIcon(TestCase):
 
     def test_icon(self):
         """Test if the correct string/link is returned"""
-        self.assertIn(self.icon.get_media_icon("MOV"), "../static/icons/MOV.svg")
-        self.assertIn(self.icon.get_media_icon("BOK"), "../static/icons/BOK.svg")
-        self.assertIn(self.icon.get_media_icon("MGA"), "../static/icons/MGA.svg")
-        self.assertIn(self.icon.get_media_icon("TVS"), "../static/icons/TVS.svg")
-        self.assertIn(self.icon.get_media_icon("MUS"), "../static/icons/MUS.svg")
-        self.assertIn(self.icon.get_media_icon("COM"), "../static/icons/COM.svg")
+        self.assertIn(self.icon.get_media_icon("MOV"), "../static/icons/MOV.png")
+        self.assertIn(self.icon.get_media_icon("BOK"), "../static/icons/BOK.png")
+        self.assertIn(self.icon.get_media_icon("MGA"), "../static/icons/MGA.png")
+        self.assertIn(self.icon.get_media_icon("TVS"), "../static/icons/TVS.png")
+        self.assertIn(self.icon.get_media_icon("MUS"), "../static/icons/MUS.png")
+        self.assertIn(self.icon.get_media_icon("COM"), "../static/icons/COM.png")
 
     def test_return_type(self):
         """Test that the function returns a string"""
@@ -41,4 +41,4 @@ class TestMediaIcon(TestCase):
         """Test that the logger works correctly"""
         self.icon.get_media_icon("MOV")
         log = self.icon.logger.get_last_log()
-        self.assertIn("Retrieved link to icon for media type MOV = ../static/icons/MOV.svg", log)
+        self.assertIn("Retrieved link to icon for media type MOV = ../static/icons/MOV.png", log)
