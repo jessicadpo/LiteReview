@@ -60,16 +60,6 @@ def userpage(request, username):
     return render(request, 'userpage.html')
 
 
-def temp_review_modal(request):
-    """Temporary view for rendering Create Review modal form"""
-    return render(request, 'temp_review_modal.html')
-
-
-def temp_account_modal(request):
-    """Temporary view for rendering Create Review modal form"""
-    return render(request, 'temp_account_modal.html')
-
-
 class Icon:  # pylint: disable=too-few-public-methods
     """
     Needs to be a class for integration testing.

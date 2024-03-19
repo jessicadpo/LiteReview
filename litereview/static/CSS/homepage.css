@@ -99,7 +99,8 @@ body {
 }
 
 /* CSS changes for the modal */
-.modal {
+#reviewModal,
+#accountModal {
     display: none;
     position: fixed;
     z-index: 1;

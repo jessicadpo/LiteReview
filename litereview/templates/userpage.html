@@ -63,10 +63,51 @@
         </div>
     </div>
 
+
+<button id="myBtn">My Account</button>
+
+<div id="accountModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="input-group">
+            <p>New Username</p>
+            <input type="text" id="newUsr">
+        </div>
+        <hr>
+        <div class="input-group">
+            <p>New Email</p>
+            <input type="text" id="newEmail">
+        </div>
+        <div class="input-group">
+            <p>Confirm Email</p>
+            <input type="text" id="ConfirmEmail">
+        </div>
+        <hr>
+        <div class="input-group">
+            <p>Old Password</p>
+            <input type="text" id="newPasswd">
+        </div>
+        <div class="input-group">
+            <p>New Password</p>
+            <input type="text" id="confirmPasswd">
+        </div>
+        <br>
+        <div id="button-section">
+            <button id="deleteAcc">Delete Account</button>
+            <button id="applyChange">Apply Changes</button>
+            <button class="close" id="accountCancelBtn">Cancel</button>
+        </div>
+    </div>
+
+</div>
+
+<script src="../static/JavaScript/temp_review_modal.js"></script>
+
 <!-- Modal Button -->
 <button class="circle-button" id="circle-Button">+</button>
 
-<div id="myModal" class="modal">
+<div id="reviewModal" class="modal">
 
     <!-- Modal content -->
     <div class="modal-content">
@@ -112,10 +153,11 @@
         <br>
         <div id="button-section">
             <button id="submitReviewBtn">Create Review</button>
-            <button class="close" id="cancelBtn">Cancel</button>
+            <button class="close" id="reviewCancelBtn">Cancel</button>
         </div>
     </div>
 </div>
+    
 <script src="../static/JavaScript/review_modal.js"></script>
 </body>
 </html>
