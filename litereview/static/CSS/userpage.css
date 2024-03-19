@@ -161,15 +161,15 @@ header {
 }
 
 .expand-button {
-    background-color: #7e7e7e;
-    color: #fff;
+    background-color: #ccc;
+    color: #000;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
 }
 
 .expand-button:hover {
-    background-color: #414141;
+    background-color: #bbb;
 }
 
 .info-bar {
