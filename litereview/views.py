@@ -20,6 +20,7 @@ review1 = Review(user_id_id=1, title='Placeholder book', author='John Smith',
                  media_type="BOK")
 review1.save()
 '''
+
 #########################################################################
 
 
@@ -82,12 +83,12 @@ class Icon:  # pylint: disable=too-few-public-methods
     def get_media_icon(self, media_name):
         """media_name is a string with the values MOV, BOK, MGA, TVS, MUS, or COM"""
         icon_paths = {
-            "MOV": "../static/icons/MOV.svg",
-            "BOK": "../static/icons/BOK.svg",
-            "MGA": "../static/icons/MGA.svg",
-            "TVS": "../static/icons/TVS.svg",
-            "MUS": "../static/icons/MUS.svg",
-            "COM": "../static/icons/COM.svg"
+            "MOV": "../static/icons/MOV.png",
+            "BOK": "../static/icons/BOK.png",
+            "MGA": "../static/icons/MGA.png",
+            "TVS": "../static/icons/TVS.png",
+            "MUS": "../static/icons/MUS.png",
+            "COM": "../static/icons/COM.png"
         }
         if isinstance(media_name, str) is False:
             raise TypeError  # Function stops here if error occurs
