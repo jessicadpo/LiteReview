@@ -54,6 +54,7 @@ header {
 
 body {
     font-family: Arial, sans-serif;
+    background-color: #001C34FF;
 }
 
 /* Icon formatting sourced from https://www.w3schools.com/css/css_grid.asp,
@@ -217,6 +218,7 @@ textarea {
     flex-direction: column;
     justify-content: center;
     padding: 2.5% 5%;
+    background-color: #005ba8;
 }
 
 .review-item {
@@ -261,6 +263,7 @@ textarea {
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px 5px 0 0;
+    color: #fff;
 }
 
 .media-type {
