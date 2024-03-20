@@ -15,7 +15,7 @@
 
 /* Modal Content */
 .modal-content {
-    background-color: #fefefe;
+    background-color: rgb(255 255 255);
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
@@ -62,4 +62,28 @@ textarea {
     font-size: 1.5em;
     padding: 10px 30px;
     margin: 0 10px;
+}
+
+#rating-container {
+    display: flex;
+    align-items: center;
+}
+
+#rating-container input {
+    margin-right: 10px;
+}
+
+#review-star {
+    height: 20px;
+    width: auto;
+}
+
+#rating-denominator {
+    font-size: 2em;
+}
+
+#star {
+    height: 50px;
+    width: auto;
+    margin-left: 20px;
 }
