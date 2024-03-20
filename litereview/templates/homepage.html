@@ -57,6 +57,7 @@
 </div>
 
 <button id="account-button" onclick="open_my_account_modal()">My Account</button>
+<a href="logout"><button>logout</button></a>
 
 <div id="account-modal" class="modal">
 
@@ -134,8 +135,8 @@ I am immensely surprised how simple that worked.-->
             <p>Rating (Optional)</p>
             <div id="rating-container">
                 <input type="text" id="ratingInput">
-                <p>/ 10</p>
-                <img id="star" src="static/icons/md_star.png" alt="A black star"/>
+                <span id="rating-denominator">/ 10</span>
+                <img id="star" src="static/icons/md_star.png" alt="A white star"/>
             </div>
         </div>
         <div class="input-group">
@@ -171,7 +172,7 @@ I am immensely surprised how simple that worked.-->
                 <div>{{ rev.review.datetime }}</div>
                 <div>Status: Complete</div>
                 <div>
-                    <img src="../static/icons/md_star.png" alt="Star Rating" style="width: 20px; height: auto;">
+                    <img id="review-star" src="../static/icons/md_star.png" alt="Star Rating">
                     <span>{{ rev.review.rating }} /10</span>
                 </div>
                 <div>

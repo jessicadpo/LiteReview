@@ -160,6 +160,11 @@ header {
     margin-right: 10px;
 }
 
+#review-star {
+    height: 20px;
+    width: auto;
+}
+
 .review-details {
     display: flex;
     flex-direction: row;
