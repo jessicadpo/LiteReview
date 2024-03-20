@@ -24,8 +24,6 @@ review1.save()
 '''
 
 #########################################################################
-
-
 '''def cleanurl(path1):
     """method for stripping the leading slash out of userpage urls"""
     path1.replace('/', '')
