@@ -59,9 +59,8 @@ def signup_login(request):
                 user = authenticate(request, username=username, password=password)
                 login(request, user)
                 return redirect("user-profile-page", username=username)
-            else:
-                forms = {"signup_form": forms, "login_form": LoginForm()}
-                return render(request, 'signup-login.html', {'forms': forms})
+            forms = {"signup_form": forms, "login_form": LoginForm()}
+            return render(request, 'signup-login.html', {'forms': forms})
         else:
             forms = LoginForm(request.POST)
             if forms.is_valid():
