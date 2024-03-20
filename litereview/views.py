@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from .models import Review
 from .logger import Logger
-from .forms import LoginForm
+from .forms import SignUpForm, LoginForm
 
 #########################################################################
 # PLACEHOLDER RECORDS (DELETE BEFORE SUBMIT)
@@ -50,17 +50,26 @@ def signup_login(request):
     """View for Sign up/Login page"""
     # NOTE: USERNAMES MUST BE UNIQUE
     if request.method == 'POST':
-        # If submitted form was login
-        if 'login-submit' in request.POST:
-            forms = LoginForm(request.POST)
+        if 'signup-submit' in request.POST:
+            forms = SignUpForm(request.POST)
             if forms.is_valid():
+                forms.save()
                 username = forms.cleaned_data.get('username')
-                password = forms.cleaned_data.get('password')
+                password = forms.cleaned_data.get('password1')
                 user = authenticate(request, username=username, password=password)
                 login(request, user)
                 return redirect("user-profile-page", username=username)
+            forms = {"signup_form": forms, "login_form": LoginForm()}
+            return render(request, 'signup-login.html', {'forms': forms})
+        forms = LoginForm(request.POST)
+        if forms.is_valid():
+            username = forms.cleaned_data.get('username')
+            password = forms.cleaned_data.get('password')
+            user = authenticate(request, username=username, password=password)
+            login(request, user)
+            return redirect("user-profile-page", username=username)
     else:
-        forms = {"login_form": LoginForm()}
+        forms = {"signup_form": SignUpForm(), "login_form": LoginForm()}
     return render(request, 'signup-login.html', {'forms': forms})
 
 
