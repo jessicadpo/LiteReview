@@ -25,10 +25,10 @@ review1.save()
 #########################################################################
 
 
-def cleanurl(path1):
+'''def cleanurl(path1):
     """method for stripping the leading slash out of userpage urls"""
     path1.replace('/', '')
-    return path1
+    return path1'''
 
 
 def homepage(request):
@@ -82,7 +82,7 @@ def signup_login(request):
 def userpage(request, username):
     """View for userpage"""
     review_list = []
-    curruser = User.objects.get(username=cleanurl(request.path)).id
+    curruser = User.objects.get(username=username).id
     userreviews = Review.objects.filter(user_id=curruser).order_by('-datetime')
 
 
