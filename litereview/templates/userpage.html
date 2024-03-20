@@ -10,59 +10,66 @@
 
 </head>
 <body>
-    <header>
-        <div class="top-bar">
-            <a href="http://127.0.0.1:8000/" class="logo">
-                <img src="../static/icons/lite-logo.png" alt="Logo">
-                <b class="webname">LiteReview</b>
-            </a>
-            <div class="search-bar">
-                <input type="text" placeholder="Search...">
-                <button type="submit">Search</button>
-            </div>
-            <div class="user">
-                <a href="signup-login">
+<header>
+    <div class="top-bar">
+        <a href="http://127.0.0.1:8000/" class="logo">
+            <img src="../static/icons/lite-logo.png" alt="Logo">
+            <b class="webname">LiteReview</b>
+        </a>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+            <button type="submit">Search</button>
+        </div>
+        <div class="user">
+            <a href="signup-login">
                 <button class="login-btn">Login / Sign Up</button>
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <div class="user-bar">
-        <b class="username">Username</b>
-        <div class="actions">
-            <button class="filter-btn">Filter</button>
-            <button class="sort-btn">Sort</button>
+            </a>
         </div>
     </div>
+</header>
 
-    <hr>
-    <div class="review-section">
-        <!-- Reviews will be in same style and will be shown based on user page -->
-        <div class="review-container">
-            <div class="review-details">
-                <div class="title-creator">
-                    <h3>Title of Review</h3>
-                    <div>Creator(s) of work</div>
-                </div>
-                <div><img class="media-type" src="../static/icons/burn-elmo.gif" alt="Media Type" style="width: 20px; height: auto;">Media Type</div>
-                <div>Date of Review</div>
-                <div>Status: Complete</div>
-                <div>
-                    <img src="../static/icons/md_star.png" alt="Star Rating" style="width: 20px; height: auto;">
-                    <span>8/10</span>
-                </div>
-                <div><button class="expand-button">Expand Review</button></div>
-                <div class="edit-delete-btns">
-                    <div class="edit-button" onclick="alert('Edit review')"><img class="media-type" src="../static/icons/edit.png" alt="Media Type"></div>
-                    <div class="delete-button" onclick="alert('replace me with deleting the review')"><img class="media-type" src="../static/icons/delete.png" alt="Media Type"></div>
-                </div>
+<div class="user-bar">
+    <b class="username">Username</b>
+    <div class="actions">
+        <button class="filter-btn">Filter</button>
+        <button class="sort-btn">Sort</button>
+    </div>
+</div>
+
+<hr>
+<div class="review-section">
+    <!-- Reviews will be in same style and will be shown based on user page -->
+    <div class="review-container">
+        <div class="review-details">
+            <div class="title-creator">
+                <h3>Title of Review</h3>
+                <div>Creator(s) of work</div>
             </div>
-            <div class="expanded-review">
-                <p>Rvasdadafjaaad long review aohdahjafad</p>
+            <div><img class="media-type" src="../static/icons/burn-elmo.gif" alt="Media Type"
+                      style="width: 20px; height: auto;">Media Type
+            </div>
+            <div>Date of Review</div>
+            <div>Status: Complete</div>
+            <div>
+                <img src="../static/icons/md_star.png" alt="Star Rating" style="width: 20px; height: auto;">
+                <span>8/10</span>
+            </div>
+            <div>
+                <button class="expand-button">Expand Review</button>
+            </div>
+            <div class="edit-delete-btns">
+                <div class="edit-button" onclick="alert('Edit review')"><img class="media-type"
+                                                                             src="../static/icons/edit.png"
+                                                                             alt="Media Type"></div>
+                <div class="delete-button" onclick="alert('replace me with deleting the review')"><img
+                        class="media-type" src="../static/icons/delete.png" alt="Media Type"></div>
             </div>
         </div>
+        <div class="expanded-review">
+            <p>Rvasdadafjaaad long review aohdahjafad</p>
+        </div>
     </div>
+</div>
 
 
 <button id="myBtn">My Account</button>
@@ -103,62 +110,64 @@
 
 </div>
 
-<script src="../static/JavaScript/temp_review_modal.js"></script>
+<!--Only shows create review modal if user is authenticated.
+I am immensely surprised how simple that worked.-->
+{% if request.user.is_authenticated %}
 
-<!-- Modal Button -->
-<button class="circle-button" id="circle-Button">+</button>
+    <button class="circle-button" id="circle-Button">+</button>
 
-<div id="reviewModal" class="modal">
+    <div id="reviewModal" class="modal">
 
-    <!-- Modal content -->
-    <div class="modal-content">
-        <div class="input-group">
-            <p>Title</p>
-            <input type="text" id="titleInput">
-        </div>
-        <div class="input-group">
-            <p>Creator</p>
-            <input type="text" id="authorInput">
-        </div>
-        <div class="input-group">
-            <p>Media Type</p>
-            <select id="mediaTypeSelect">
-                <option value="movie">Movie</option>
-                <option value="tvShow">TV Show</option>
-                <option value="book">Book</option>
-                <option value="comicBook">Comic Book</option>
-                <option value="manga">Manga</option>
-                <option value="music">Music</option>
-            </select>
-        </div>
-        <div class="input-group">
-            <p>Status</p>
-            <select id="completionSelect">
-                <option value="In Progress">In Progress</option>
-                <option value="Completed">Completed</option>
-                <option value="Dropped">Dropped</option>
-            </select>
-        </div>
-        <div class="input-group">
-            <p>Rating (Optional)</p>
-            <div id="rating-container">
-                <input type="text" id="ratingInput">
-                <p>/ 10</p>
-                <img id="star" src="static/icons/md_star.png" alt="A black star"/>
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="input-group">
+                <p>Title</p>
+                <input type="text" id="titleInput">
+            </div>
+            <div class="input-group">
+                <p>Creator</p>
+                <input type="text" id="authorInput">
+            </div>
+            <div class="input-group">
+                <p>Media Type</p>
+                <select id="mediaTypeSelect">
+                    <option value="movie">Movie</option>
+                    <option value="tvShow">TV Show</option>
+                    <option value="book">Book</option>
+                    <option value="comicBook">Comic Book</option>
+                    <option value="manga">Manga</option>
+                    <option value="music">Music</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <p>Status</p>
+                <select id="completionSelect">
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Dropped">Dropped</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <p>Rating (Optional)</p>
+                <div id="rating-container">
+                    <input type="text" id="ratingInput">
+                    <p>/ 10</p>
+                    <img id="star" src="static/icons/md_star.png" alt="A black star"/>
+                </div>
+            </div>
+            <div class="input-group">
+                <p>Review (Optional)</p>
+                <textarea id="reviewTextarea" rows="20"></textarea>
+            </div>
+            <br>
+            <div id="button-section">
+                <button id="submitReviewBtn">Create Review</button>
+                <button class="close" id="reviewCancelBtn">Cancel</button>
             </div>
         </div>
-        <div class="input-group">
-            <p>Review (Optional)</p>
-            <textarea id="reviewTextarea" rows="20"></textarea>
-        </div>
-        <br>
-        <div id="button-section">
-            <button id="submitReviewBtn">Create Review</button>
-            <button class="close" id="reviewCancelBtn">Cancel</button>
-        </div>
     </div>
-</div>
-    
+
+{% endif %}
 <script src="../static/JavaScript/review_modal.js"></script>
 </body>
 </html>

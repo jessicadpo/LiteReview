@@ -93,58 +93,64 @@
     </div>
 </div>
 
-<button class="circle-button" id="circle-Button">+</button>
+<!--Only shows create review modal if user is authenticated.
+I am immensely surprised how simple that worked.-->
+{% if request.user.is_authenticated %}
 
-<div id="reviewModal" class="modal">
+    <button class="circle-button" id="circle-Button">+</button>
 
-    <!-- Modal content -->
-    <div class="modal-content">
-        <div class="input-group">
-            <p>Title</p>
-            <input type="text" id="titleInput">
-        </div>
-        <div class="input-group">
-            <p>Creator</p>
-            <input type="text" id="authorInput">
-        </div>
-        <div class="input-group">
-            <p>Media Type</p>
-            <select id="mediaTypeSelect">
-                <option value="movie">Movie</option>
-                <option value="tvShow">TV Show</option>
-                <option value="book">Book</option>
-                <option value="comicBook">Comic Book</option>
-                <option value="manga">Manga</option>
-                <option value="music">Music</option>
-            </select>
-        </div>
-        <div class="input-group">
-            <p>Status</p>
-            <select id="completionSelect">
-                <option value="In Progress">In Progress</option>
-                <option value="Completed">Completed</option>
-                <option value="Dropped">Dropped</option>
-            </select>
-        </div>
-        <div class="input-group">
-            <p>Rating (Optional)</p>
-            <div id="rating-container">
-                <input type="text" id="ratingInput">
-                <p>/ 10</p>
-                <img id="star" src="static/icons/md_star.png" alt="A black star"/>
+    <div id="reviewModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="input-group">
+                <p>Title</p>
+                <input type="text" id="titleInput">
+            </div>
+            <div class="input-group">
+                <p>Creator</p>
+                <input type="text" id="authorInput">
+            </div>
+            <div class="input-group">
+                <p>Media Type</p>
+                <select id="mediaTypeSelect">
+                    <option value="movie">Movie</option>
+                    <option value="tvShow">TV Show</option>
+                    <option value="book">Book</option>
+                    <option value="comicBook">Comic Book</option>
+                    <option value="manga">Manga</option>
+                    <option value="music">Music</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <p>Status</p>
+                <select id="completionSelect">
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Dropped">Dropped</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <p>Rating (Optional)</p>
+                <div id="rating-container">
+                    <input type="text" id="ratingInput">
+                    <p>/ 10</p>
+                    <img id="star" src="static/icons/md_star.png" alt="A black star"/>
+                </div>
+            </div>
+            <div class="input-group">
+                <p>Review (Optional)</p>
+                <textarea id="reviewTextarea" rows="20"></textarea>
+            </div>
+            <br>
+            <div id="button-section">
+                <button id="submitReviewBtn">Create Review</button>
+                <button class="close" id="reviewCancelBtn">Cancel</button>
             </div>
         </div>
-        <div class="input-group">
-            <p>Review (Optional)</p>
-            <textarea id="reviewTextarea" rows="20"></textarea>
-        </div>
-        <br>
-        <div id="button-section">
-            <button id="submitReviewBtn">Create Review</button>
-            <button class="close" id="reviewCancelBtn">Cancel</button>
-        </div>
     </div>
-</div>
+
+{% endif %}
 
 <br>
 
