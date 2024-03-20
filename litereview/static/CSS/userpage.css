@@ -141,18 +141,20 @@ header {
 
 /* Copy from here down to next comment for review stuff */
 .review-section {
+    display: flex;
+    flex-direction: column;
     align-items: center;
     padding: 10px;
 }
 
 .review-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    margin-top: 10px;
-    width: 100%;
+    width: 95%;
     font-size: 1.5em;
     background-color: #005ba8;
+    margin-top: 15px;
 }
 
 .media-type {
@@ -202,11 +204,12 @@ header {
 }
 
 .expanded-review {
-    width: 100%;
+    width: 95%;
     padding: 20px;
     background-color: #004077;
     border-radius: 0 0 5px 5px;
     border: 1px solid #ccc;
     border-top-style: none;
     color: #ccc;
+    margin-bottom: 20px;
 }

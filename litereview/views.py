@@ -22,6 +22,7 @@ review1 = Review(user_id_id=1, title='Placeholder book', author='John Smith',
                  media_type="BOK")
 review1.save()
 '''
+
 #########################################################################
 
 
@@ -81,9 +82,9 @@ def signup_login(request):
 
 def userpage(request, username):
     """View for userpage"""
-    curruser = User.objects.get(username=username).id
-    userreviews = Review.objects.filter(user_id=curruser).order_by('-datetime')  # pylint: disable=no-member
-    return render(request, 'userpage.html', {"review_list": userreviews})
+    curr_user_id = User.objects.get(username=username).id
+    user_reviews = Review.objects.filter(user_id=curr_user_id).order_by('-datetime')  # pylint: disable=no-member
+    return render(request, 'userpage.html', {"review_list": user_reviews})
 
 
 class Icon:  # pylint: disable=too-few-public-methods
