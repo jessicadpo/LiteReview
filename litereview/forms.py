@@ -21,7 +21,8 @@ class SignUpForm(UserCreationForm):  # pylint: disable=too-many-ancestors
     password2 = forms.CharField(label=False, widget=forms.PasswordInput(
         attrs={'class': 'signup-input', 'placeholder': 'Confirm Password'}))
 
-    class Meta:
+    class Meta:  # pylint: disable=too-few-public-methods
+        """Allows rearranging of form elements"""
         model = User
         fields = ('username', 'email', 'password1', 'password2')
 
@@ -35,7 +36,6 @@ class SignUpForm(UserCreationForm):  # pylint: disable=too-many-ancestors
 
     def clean_email(self):
         """prevents duplicate emails"""
-        # resolve issues in another branch, doesn't work yet
         email = self.cleaned_data['email'].lower()
         new = User.objects.filter(email=email)
         if new.count():
