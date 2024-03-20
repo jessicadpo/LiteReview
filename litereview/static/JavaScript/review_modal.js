@@ -2,16 +2,10 @@
 // Portions of said code have been edited by me and de-bugged by ChatGPT (It was a capitalization error)
 
 // Get the create review modal
-var reviewModal = document.getElementById("reviewModal");
+var reviewModal = document.getElementById("review-modal");
 
 // Get the my account modal
-var accountModal = document.getElementById("accountModal");
-
-// Get the button that opens the create review modal
-var reviewBtn = document.getElementById("circle-Button");
-
-// Get the button that opens the my account modal
-var accountBtn = document.getElementById("myBtn");
+var accountModal = document.getElementById("account-modal");
 
 // Get the <span> elements that close the modals
 var reviewCloseSpan = document.getElementById("reviewCancelBtn");
@@ -22,14 +16,14 @@ var reviewCancelBtn = document.getElementById("cancelReviewBtn");
 var accountCancelBtn = document.getElementById("cancelAccountBtn");
 
 // When the user clicks the create review button, open the create review modal
-reviewBtn.onclick = function () {
+function open_create_review_modal() {
     reviewModal.style.display = "block";
-};
+}
 
 // When the user clicks the my account button, open the my account modal
-accountBtn.onclick = function () {
+function open_my_account_modal() {
     accountModal.style.display = "block";
-};
+}
 
 // When the user clicks on <span> (x) or outside of the modals, close them
 window.onclick = function (event) {
