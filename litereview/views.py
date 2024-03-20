@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from .models import Review
 from .logger import Logger
-from .forms import LoginForm
+from .forms import SignUpForm, LoginForm
 
 #########################################################################
 # PLACEHOLDER RECORDS (DELETE BEFORE SUBMIT)
@@ -51,7 +51,17 @@ def signup_login(request):
     # NOTE: USERNAMES MUST BE UNIQUE
     if request.method == 'POST':
         # If submitted form was login
-        if 'login-submit' in request.POST:
+        if 'signup-submit' in request.POST:
+            forms = SignUpForm(request.POST)
+            if forms.is_valid():
+                forms.save()
+                username = forms.cleaned_data.get('username')
+                password = forms.cleaned_data.get('password')
+                user = authenticate(request, username=username, password=password)
+                login(request, user)
+                return redirect("user-profile-page", username=username)
+
+        else:
             forms = LoginForm(request.POST)
             if forms.is_valid():
                 username = forms.cleaned_data.get('username')
