@@ -25,6 +25,12 @@ review1.save()
 #########################################################################
 
 
+def cleanurl(path1):
+    """method for stripping the leading slash out of userpage urls"""
+    path1.replace('/', '')
+    return path1
+
+
 def homepage(request):
     """View for index page (AKA homepage)"""
     # Retrieve data from database
@@ -75,7 +81,12 @@ def signup_login(request):
 
 def userpage(request, username):
     """View for userpage"""
-    print(username)
+    review_list = []
+    curruser = User.objects.get(username=cleanurl(request.path)).id
+    userreviews = Review.objects.filter(user_id=curruser).order_by('-datetime')
+
+
+
     # This is to make pylint shut up about unused username parameter for now
     # Replace with the code later
     return render(request, 'userpage.html')
