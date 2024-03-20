@@ -21,21 +21,25 @@ class SignUpForm(UserCreationForm):  # pylint: disable=too-many-ancestors
     password2 = forms.CharField(label=False, widget=forms.PasswordInput(
         attrs={'class': 'signup-input', 'placeholder': 'Confirm Password'}))
 
-    def username_clean(self):
+    class Meta:  # pylint: disable=too-few-public-methods
+        """Allows rearranging of form elements"""
+        model = User
+        fields = ('username', 'email', 'password1', 'password2')
+
+    def clean_username(self):
         """prevents duplicate usernames"""
         username = self.cleaned_data['username'].lower()
         new = User.objects.filter(username=username)
         if new.count():
-            raise ValidationError("User Already Exist")
+            raise ValidationError("Username already exists!")
         return username
 
-    def email_clean(self):
+    def clean_email(self):
         """prevents duplicate emails"""
-        # resolve issues in another branch, doesn't work yet
         email = self.cleaned_data['email'].lower()
         new = User.objects.filter(email=email)
         if new.count():
-            raise ValidationError("Email Already Exist")
+            raise ValidationError("Email belongs to existing user!")
         return email
 
     def clean_password2(self):  #
@@ -44,7 +48,7 @@ class SignUpForm(UserCreationForm):  # pylint: disable=too-many-ancestors
         password2 = self.cleaned_data['password2']
 
         if password1 and password2 and password1 != password2:
-            raise ValidationError("Password don't match")
+            raise ValidationError("Passwords don't match!")
         return password2
 
     def save(self, commit=True):
