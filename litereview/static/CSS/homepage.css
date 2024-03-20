@@ -193,20 +193,6 @@ textarea {
     background-color: #004077;
 }
 
-#rating-container {
-    display: flex;
-    align-items: center;
-}
-
-#rating-container input {
-    margin-right: 10px;
-}
-
-#star {
-    height: 30px;
-    width: auto;
-}
-
 .review-section-title {
     float: left;
     width: 100%;

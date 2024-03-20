@@ -51,7 +51,7 @@
             <div>Date of Review</div>
             <div>Status: Complete</div>
             <div>
-                <img src="../static/icons/md_star.png" alt="Star Rating" style="width: 20px; height: auto;">
+                <img id="review-star" src="../static/icons/md_star.png" alt="Star Rating">
                 <span>8/10</span>
             </div>
             <div>
@@ -149,8 +149,8 @@ I am immensely surprised how simple that worked.-->
             <p>Rating (Optional)</p>
             <div id="rating-container">
                 <input type="text" id="ratingInput">
-                <p>/ 10</p>
-                <img id="star" src="static/icons/md_star.png" alt="A black star"/>
+                <span id="rating-denominator">/ 10</span>
+                <img id="star" src="static/icons/md_star.png" alt="A white star"/>
             </div>
         </div>
         <div class="input-group">
