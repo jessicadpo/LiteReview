@@ -1,6 +1,5 @@
 """"Module containing forms for the LiteReview"""
 
-from django import forms
 
 from django import forms
 from django.contrib.auth.models import User
@@ -8,7 +7,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
 
 
-class SignUpForm(UserCreationForm):
+class SignUpForm(UserCreationForm):  # pylint: disable=too-many-ancestors
     """
     Copied from: https://www.javatpoint.com/django-usercreationform
     With some modifications
@@ -22,22 +21,22 @@ class SignUpForm(UserCreationForm):
     password2 = forms.CharField(label=False, widget=forms.PasswordInput(
         attrs={'class': 'signup-input', 'placeholder': 'Confirm Password'}))
 
-    def username_clean(self):
+    def username_clean(self):  # prevents duplicate usernames
         username = self.cleaned_data['username'].lower()
         new = User.objects.filter(username=username)
         if new.count():
             raise ValidationError("User Already Exist")
         return username
 
-    def email_clean(self):
-        # TODO: This doesn't actually work for some reason
+    def email_clean(self):  # prevents duplicate emails
+        # resolve issues in another branch, doesn't work yet
         email = self.cleaned_data['email'].lower()
         new = User.objects.filter(email=email)
         if new.count():
             raise ValidationError("Email Already Exist")
         return email
 
-    def clean_password2(self):
+    def clean_password2(self):  # prevents mismatching password validation
         password1 = self.cleaned_data['password1']
         password2 = self.cleaned_data['password2']
 
@@ -45,7 +44,7 @@ class SignUpForm(UserCreationForm):
             raise ValidationError("Password don't match")
         return password2
 
-    def save(self, commit=True):
+    def save(self, commit=True):  # saves cleaned data for the form
         user = User.objects.create_user(
             self.cleaned_data['username'],
             self.cleaned_data['email'],
@@ -57,14 +56,6 @@ class SignUpForm(UserCreationForm):
 class LoginForm(forms.Form):
     """Copied from https://medium.com/@devsumitg/django-auth-user-signup-and-login-7b424dae7fab"""
     username = forms.CharField(label=False, min_length=1, max_length=150,
-                    widget=forms.TextInput(attrs={'class': 'login-input', 'placeholder': 'Username'}))
-    password = forms.CharField(label=False,
-                               widget=forms.PasswordInput(attrs={'class': 'login-input', 'placeholder': 'Password'}))
-
-class LoginForm(forms.Form):
-    """Copied from https://medium.com/@devsumitg/django-auth-user-signup-and-login-7b424dae7fab"""
-    username = forms.CharField(label=False, min_length=1, max_length=150,
         widget=forms.TextInput(attrs={'class': 'login-input', 'placeholder': 'Username'}))
     password = forms.CharField(label=False,
         widget=forms.PasswordInput(attrs={'class': 'login-input', 'placeholder': 'Password'}))
-
