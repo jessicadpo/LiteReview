@@ -30,7 +30,7 @@ class SignUpForm(UserCreationForm):  # pylint: disable=too-many-ancestors
         username = self.cleaned_data['username'].lower()
         new = User.objects.filter(username=username)
         if new.count():
-            raise ValidationError("User Already Exist")
+            raise ValidationError("Username already exists!")
         return username
 
     def clean_email(self):
@@ -39,7 +39,7 @@ class SignUpForm(UserCreationForm):  # pylint: disable=too-many-ancestors
         email = self.cleaned_data['email'].lower()
         new = User.objects.filter(email=email)
         if new.count():
-            raise ValidationError("Email Already Exist")
+            raise ValidationError("Email belongs to existing user!")
         return email
 
     def clean_password2(self):  #
@@ -48,7 +48,7 @@ class SignUpForm(UserCreationForm):  # pylint: disable=too-many-ancestors
         password2 = self.cleaned_data['password2']
 
         if password1 and password2 and password1 != password2:
-            raise ValidationError("Password don't match")
+            raise ValidationError("Passwords don't match!")
         return password2
 
     def save(self, commit=True):
