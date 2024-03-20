@@ -21,6 +21,8 @@
             <button type="submit">Search</button>
         </div>
         <div class="user">
+            <button id="account-button" onclick="open_my_account_modal()">My Account</button>
+            <a href="logout"><button>Logout</button></a>
             <a href="signup-login">
                 <button class="login-btn">Login / Sign Up</button>
             </a>
@@ -39,39 +41,41 @@
 <hr>
 <div class="review-section">
     <!-- Reviews will be in same style and will be shown based on user page -->
-    <div class="review-container">
-        <div class="review-details">
-            <div class="title-creator">
-                <h3>Title of Review</h3>
-                <div>Creator(s) of work</div>
-            </div>
-            <div><img class="media-type" src="../static/icons/burn-elmo.gif" alt="Media Type"
-                      style="width: 20px; height: auto;">Media Type
-            </div>
-            <div>Date of Review</div>
-            <div>Status: Complete</div>
-            <div>
-                <img id="review-star" src="../static/icons/md_star.png" alt="Star Rating">
-                <span>8/10</span>
-            </div>
-            <div>
-                <button class="expand-button">Expand Review</button>
-            </div>
-            <div class="edit-delete-btns">
-                <div class="edit-button" onclick="alert('Edit review')"><img class="media-type"
-                                                                             src="../static/icons/edit.png"
-                                                                             alt="Media Type"></div>
-                <div class="delete-button" onclick="alert('replace me with deleting the review')"><img
-                        class="media-type" src="../static/icons/delete.png" alt="Media Type"></div>
+    {% for rev in review_list %}   
+        <div class="review-container">
+            <div class="review-details">
+                <div class="title-creator">
+                    <h3>{{ rev.title }}</h3>
+                    <div>{{ rev.author }}</div>
+                </div>
+                <div>
+                    <img class="media-type" src="{{ rev.media_type_icon }}" alt="Media Type" style="width: 20px; height: auto;">
+                    {{ rev.media_type }}
+                </div>
+                <div>{{ rev.datetime }}</div>
+                <div>Status: {{ rev.status }}</div>
+                <div>
+                    <img class="review-star" src="../static/icons/md_star.png" alt="Star Rating">
+                    <span>{{ rev.rating }} /10</span>
+                </div>
+                <div>
+                    <button class="expand-button">Expand Review</button>
+                </div>
+                <div class="edit-delete-btns">
+                    <div class="edit-button" onclick="alert('Edit review')">
+                        <img class="media-type" src="../static/icons/edit.png" alt="Media Type">
+                    </div>
+                    <div class="delete-button" onclick="alert('replace me with deleting the review')">
+                        <img class="media-type" src="../static/icons/delete.png" alt="Media Type">
+                    </div>
+                </div>
             </div>
         </div>
         <div class="expanded-review">
-            <p>Rvasdadafjaaad long review aohdahjafad</p>
+            <p>{{ rev.text }}</p>
         </div>
-    </div>
+    {% endfor %}
 </div>
-
-<button id="account-button" onclick="open_my_account_modal()">My Account</button>
 
 <div id="account-modal" class="modal">
 

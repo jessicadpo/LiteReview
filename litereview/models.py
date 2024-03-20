@@ -15,6 +15,12 @@ class Review(models.Model):
         MUSIC = "MUS", _("Music")
         COMIC = "COM", _("Comic/Graphic Novel")
 
+    class ProgressStatus(models.TextChoices):
+        """List of valid completion statuses"""
+        COMPLETE = "Complete"
+        IN_PROGRESS = "In Progress"
+        DROPPED = "Dropped"
+
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, blank=False, null=False)
     '''foreign key set to the user that made the review'''
     title = models.CharField(max_length=128, blank=False, null=False)
@@ -22,6 +28,9 @@ class Review(models.Model):
     author = models.CharField(max_length=128, blank=False, null=False)
     '''main/relevant author of the work'''
     datetime = models.DateTimeField(auto_now_add=True, blank=False, null=False)
+    '''progress status'''
+    status = models.CharField(max_length=128, choices=ProgressStatus.choices,
+                              default="In Progress", blank=False, null=False)
     '''date and time of the review, set at creation'''
     rating = models.IntegerField(blank=False, null=False)
     '''rating given with the review'''
