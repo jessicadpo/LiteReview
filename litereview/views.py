@@ -81,15 +81,9 @@ def signup_login(request):
 
 def userpage(request, username):
     """View for userpage"""
-    review_list = []
     curruser = User.objects.get(username=username).id
     userreviews = Review.objects.filter(user_id=curruser).order_by('-datetime')
-
-
-
-    # This is to make pylint shut up about unused username parameter for now
-    # Replace with the code later
-    return render(request, 'userpage.html')
+    return render(request, 'userpage.html', {"review_list": userreviews})
 
 
 class Icon:  # pylint: disable=too-few-public-methods
