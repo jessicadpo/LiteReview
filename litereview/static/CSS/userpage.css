@@ -146,7 +146,7 @@ header {
 
 .review-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     margin-top: 10px;
     width: 100%;

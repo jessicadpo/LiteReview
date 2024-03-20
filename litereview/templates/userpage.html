@@ -46,8 +46,10 @@
                     <h3>{{ rev.title }}</h3>
                     <div>{{ rev.author }}</div>
                 </div>
-                <div><img class="media-type" src="{{ rev.media_type_icon }}" alt="Media Type"
-                          style="width: 20px; height: auto;">{{ rev.media_type }}</div>
+                <div>
+                    <img class="media-type" src="{{ rev.media_type_icon }}" alt="Media Type" style="width: 20px; height: auto;">
+                    {{ rev.media_type }}
+                </div>
                 <div>{{ rev.datetime }}</div>
                 <div>Status: Complete</div>
                 <div>
@@ -57,20 +59,20 @@
                 <div>
                     <button class="expand-button">Expand Review</button>
                 </div>
-            </div>
                 <div class="edit-delete-btns">
-                    <div class="edit-button" onclick="alert('Edit review')"><img class="media-type"
-                                                                                 src="../static/icons/edit.png"
-                                                                                 alt="Media Type"></div>
-                    <div class="delete-button" onclick="alert('replace me with deleting the review')"><img
-                            class="media-type" src="../static/icons/delete.png" alt="Media Type"></div>
+                    <div class="edit-button" onclick="alert('Edit review')">
+                        <img class="media-type" src="../static/icons/edit.png" alt="Media Type">
+                    </div>
+                    <div class="delete-button" onclick="alert('replace me with deleting the review')">
+                        <img class="media-type" src="../static/icons/delete.png" alt="Media Type">
+                    </div>
                 </div>
             </div>
-            <div class="expanded-review">
-                <p>{{ rev.text }}</p>
-            </div>
-    {% endfor %}        
-    </div>
+        </div>
+        <div class="expanded-review">
+            <p>{{ rev.text }}</p>
+        </div>
+    {% endfor %}
 </div>
 
 <button id="account-button" onclick="open_my_account_modal()">My Account</button>
