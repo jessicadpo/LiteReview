@@ -82,6 +82,11 @@ body {
     margin-bottom: 15px;
 }
 
+.errorlist {
+    width: 500px;
+    margin: auto;
+}
+
 .errorlist li {
     color: red;
     text-align: left;
