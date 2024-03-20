@@ -82,7 +82,7 @@ def signup_login(request):
 def userpage(request, username):
     """View for userpage"""
     curruser = User.objects.get(username=username).id
-    userreviews = Review.objects.filter(user_id=curruser).order_by('-datetime')
+    userreviews = Review.objects.filter(user_id=curruser).order_by('-datetime')  # pylint: disable=no-member
     return render(request, 'userpage.html', {"review_list": userreviews})
 
 
