@@ -21,6 +21,10 @@ class SignUpForm(UserCreationForm):  # pylint: disable=too-many-ancestors
     password2 = forms.CharField(label=False, widget=forms.PasswordInput(
         attrs={'class': 'signup-input', 'placeholder': 'Confirm Password'}))
 
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'password1', 'password2')
+
     def clean_username(self):
         """prevents duplicate usernames"""
         username = self.cleaned_data['username'].lower()
