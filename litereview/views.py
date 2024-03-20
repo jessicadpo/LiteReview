@@ -70,7 +70,7 @@ def signup_login(request):
                 login(request, user)
                 return redirect("user-profile-page", username=username)
     else:
-        forms = {"login_form": LoginForm()}
+        forms = {"signup_form": SignUpForm(), "login_form": LoginForm()}
     return render(request, 'signup-login.html', {'forms': forms})
 
 
