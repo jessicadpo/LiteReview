@@ -21,7 +21,7 @@ class SignUpForm(UserCreationForm):  # pylint: disable=too-many-ancestors
     password2 = forms.CharField(label=False, widget=forms.PasswordInput(
         attrs={'class': 'signup-input', 'placeholder': 'Confirm Password'}))
 
-    def username_clean(self):
+    def clean_username(self):
         """prevents duplicate usernames"""
         username = self.cleaned_data['username'].lower()
         new = User.objects.filter(username=username)
@@ -29,7 +29,7 @@ class SignUpForm(UserCreationForm):  # pylint: disable=too-many-ancestors
             raise ValidationError("User Already Exist")
         return username
 
-    def email_clean(self):
+    def clean_email(self):
         """prevents duplicate emails"""
         # resolve issues in another branch, doesn't work yet
         email = self.cleaned_data['email'].lower()
