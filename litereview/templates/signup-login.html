@@ -25,17 +25,13 @@
     
     <div class = "forms">
         <div class = "form">
-            <h2 id="subtitle1" class="subtitle">
+            <h2 class="subtitle">
                 <b> Sign Up</b><br><br>
             </h2>
             <form method="post">
-                <input class="signup-input" type="text" placeholder="Email"><br><br>
-                <input class="signup-input" type="text" placeholder="Username"><br><br>
-                <input class="signup-input" type="text" placeholder="Password"><br><br>
-                <input class="signup-input" type="text" placeholder="Confirm Password"><br><br>
-                <br>
-        
-                <input type="submit" class="signup-btn" value="Create Account">
+                {% csrf_token %}
+                {{ forms.signup_form }}
+                <input name="signup-submit" type="submit" class="signup-btn" value="Create Account">
             </form>
         </div>
         
@@ -44,13 +40,9 @@
                 <b> Log In</b><br><br>
             </h2>
             <form method="post">
-                <input class="login-input" type="text" placeholder="Email"><br><br>
-                <input class="login-input" type="text" placeholder="Password"><br><br>
-                    <br>
-        
-                    <input type="submit" class="login-btn" value="Log In"/>
-                
-                    <br>
+                {% csrf_token %}
+                {{ forms.login_form }}
+                <input name="login-submit" type="submit" class="login-btn" value="Log In"/>
             </form>
         </div>
     </div>
