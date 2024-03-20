@@ -54,9 +54,9 @@ def signup_login(request):
         if 'signup-submit' in request.POST:
             forms = SignUpForm(request.POST)
             if forms.is_valid():
-                forms.save()
                 username = forms.cleaned_data.get('username')
                 password = forms.cleaned_data.get('password')
+                forms.save()
                 user = authenticate(request, username=username, password=password)
                 login(request, user)
                 return redirect("user-profile-page", username=username)
