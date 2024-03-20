@@ -61,14 +61,13 @@ def signup_login(request):
                 return redirect("user-profile-page", username=username)
             forms = {"signup_form": forms, "login_form": LoginForm()}
             return render(request, 'signup-login.html', {'forms': forms})
-        else:
-            forms = LoginForm(request.POST)
-            if forms.is_valid():
-                username = forms.cleaned_data.get('username')
-                password = forms.cleaned_data.get('password')
-                user = authenticate(request, username=username, password=password)
-                login(request, user)
-                return redirect("user-profile-page", username=username)
+        forms = LoginForm(request.POST)
+        if forms.is_valid():
+            username = forms.cleaned_data.get('username')
+            password = forms.cleaned_data.get('password')
+            user = authenticate(request, username=username, password=password)
+            login(request, user)
+            return redirect("user-profile-page", username=username)
     else:
         forms = {"signup_form": SignUpForm(), "login_form": LoginForm()}
     return render(request, 'signup-login.html', {'forms': forms})
