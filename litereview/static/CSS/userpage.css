@@ -55,6 +55,7 @@ header {
     background-color: #ccc;
     border: none;
     cursor: pointer;
+    margin: 0px 5px;
 }
 
 .main {
@@ -209,5 +210,3 @@ header {
     border-top-style: none;
     color: #ccc;
 }
-
-/* Stop copying about here */
