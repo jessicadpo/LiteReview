@@ -50,17 +50,18 @@ def signup_login(request):
     """View for Sign up/Login page"""
     # NOTE: USERNAMES MUST BE UNIQUE
     if request.method == 'POST':
-        # If submitted form was login
         if 'signup-submit' in request.POST:
             forms = SignUpForm(request.POST)
             if forms.is_valid():
-                username = forms.cleaned_data.get('username')
-                password = forms.cleaned_data.get('password')
                 forms.save()
+                username = forms.cleaned_data.get('username')
+                password = forms.cleaned_data.get('password1')
                 user = authenticate(request, username=username, password=password)
                 login(request, user)
                 return redirect("user-profile-page", username=username)
-
+            else:
+                forms = {"signup_form": forms, "login_form": LoginForm()}
+                return render(request, 'signup-login.html', {'forms': forms})
         else:
             forms = LoginForm(request.POST)
             if forms.is_valid():
