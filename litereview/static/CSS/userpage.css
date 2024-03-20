@@ -160,7 +160,7 @@ header {
     margin-right: 10px;
 }
 
-#review-star {
+.review-star {
     height: 20px;
     width: auto;
 }
