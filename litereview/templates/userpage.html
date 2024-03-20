@@ -71,10 +71,9 @@
     </div>
 </div>
 
+<button id="account-button" onclick="open_my_account_modal()">My Account</button>
 
-<button id="myBtn">My Account</button>
-
-<div id="accountModal" class="modal">
+<div id="account-modal" class="modal">
 
     <!-- Modal content -->
     <div class="modal-content">
@@ -107,15 +106,15 @@
             <button class="close" id="accountCancelBtn">Cancel</button>
         </div>
     </div>
-
 </div>
 
 <!--Only shows create review modal if user is authenticated.
 I am immensely surprised how simple that worked.-->
 {% if request.user.is_authenticated %}
-    <button class="circle-button" id="circle-Button">+</button>
+    <button class="circle-button" onclick="open_create_review_modal()" id="circle-Button">+</button>
 {% endif %}
-<div id="reviewModal" class="modal">
+
+<div id="review-modal" class="modal">
 
     <!-- Modal content -->
     <div class="modal-content">
@@ -166,7 +165,6 @@ I am immensely surprised how simple that worked.-->
     </div>
 </div>
 
-{% endif %}
 <script src="../static/JavaScript/review_modal.js"></script>
 </body>
 </html>
