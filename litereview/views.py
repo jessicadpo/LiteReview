@@ -1,14 +1,16 @@
 """Module for litereview views"""
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
 from .models import Review
 from .logger import Logger
+from .forms import SignUpForm, LoginForm
 
 #########################################################################
 # PLACEHOLDER RECORDS (DELETE BEFORE SUBMIT)
 
 # pylint: disable=pointless-string-statement
-# Will be deleted before submit anyways
+# Will be deleted before submit anyway
 '''
 PLACEHOLDER RECORDS -- DO NOT UNCOMMENT (already created in database)
 user1 = User(username='JSmith2000', password='password123',
@@ -20,7 +22,6 @@ review1 = Review(user_id_id=1, title='Placeholder book', author='John Smith',
                  media_type="BOK")
 review1.save()
 '''
-
 #########################################################################
 
 
@@ -47,10 +48,20 @@ def homepage(request):
 
 def signup_login(request):
     """View for Sign up/Login page"""
-
-    # NOTE: USERNAMES MUST BE UNIQUE (dk how to modify Django's premade constraints
-    # and I don't care to)
-    return render(request, 'signup-login.html')
+    # NOTE: USERNAMES MUST BE UNIQUE
+    if request.method == 'POST':
+        # If submitted form was login
+        if 'login-submit' in request.POST:
+            forms = LoginForm(request.POST)
+            if forms.is_valid():
+                username = forms.cleaned_data.get('username')
+                password = forms.cleaned_data.get('password')
+                user = authenticate(request, username=username, password=password)
+                login(request, user)
+                return redirect("user-profile-page", username=username)
+    else:
+        forms = {"login_form": LoginForm()}
+    return render(request, 'signup-login.html', {'forms': forms})
 
 
 def userpage(request, username):
@@ -59,16 +70,6 @@ def userpage(request, username):
     # This is to make pylint shut up about unused username parameter for now
     # Replace with the code later
     return render(request, 'userpage.html')
-
-
-def temp_review_modal(request):
-    """Temporary view for rendering Create Review modal form"""
-    return render(request, 'temp_review_modal.html')
-
-
-def temp_account_modal(request):
-    """Temporary view for rendering Create Review modal form"""
-    return render(request, 'temp_account_modal.html')
 
 
 class Icon:  # pylint: disable=too-few-public-methods
