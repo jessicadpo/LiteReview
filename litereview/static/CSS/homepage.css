@@ -101,7 +101,8 @@ body {
 }
 
 /* CSS changes for the modal */
-.modal {
+#review-modal,
+#account-modal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -155,12 +156,14 @@ textarea {
     height: 50px;
 }
 
-#button-section {
+#button-section-review,
+#button-section-account {
     display: flex;
     justify-content: center;
 }
 
-#button-section button {
+#button-section-review button,
+#button-section-account button {
     font-size: 1.5em;
     padding: 10px 30px;
     margin: 0 10px;
@@ -188,20 +191,6 @@ textarea {
 
 .circle-button:hover {
     background-color: #004077;
-}
-
-#rating-container {
-    display: flex;
-    align-items: center;
-}
-
-#rating-container input {
-    margin-right: 10px;
-}
-
-#star {
-    height: 30px;
-    width: auto;
 }
 
 .review-section-title {
