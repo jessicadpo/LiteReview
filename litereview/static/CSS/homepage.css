@@ -101,13 +101,6 @@ body {
     width: 50vh;
 }
 
-/* Modal Content */
-#button-section-review,
-#button-section-account {
-    display: flex;
-    justify-content: center;
-}
-
 /* CSS for the modal button */
 .circle-button {
     width: 50px;

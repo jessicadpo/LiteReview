@@ -93,10 +93,10 @@
             <input type="text" id="confirmPasswd">
         </div>
         <br>
-        <div id="button-section-account">
-            <button id="deleteAcc">Delete Account</button>
-            <button id="applyChange">Apply Changes</button>
-            <button class="close" id="accountCancelBtn">Cancel</button>
+        <div class="button-section">
+            <button id="deleteAcc" class='modal-button'>Delete Account</button>
+            <button id="applyChange" class='modal-button'>Apply Changes</button>
+            <button class="close modal-button" id="accountCancelBtn">Cancel</button>
         </div>
     </div>
 </div>
@@ -126,8 +126,8 @@ I am immensely surprised how simple that worked.-->
             {% endfor %}
             <br>
             <div class="button-section">
-                <input name="create-review-submit" type="submit" id="submitReviewBtn" value="Create Review"/>
-                <button class="close" id="reviewCancelBtn">Cancel</button>
+                <input name="create-review-submit" type="submit" id="submitReviewBtn" class='modal-button' value="Create Review"/>
+                <button class="close modal-button" id="reviewCancelBtn">Cancel</button>
             </div>
         </form>
     </div>
