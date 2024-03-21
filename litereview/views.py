@@ -84,6 +84,8 @@ def userpage(request, username):
     """View for userpage"""
     curr_user_id = User.objects.get(username=username).id
     user_reviews = Review.objects.filter(user_id=curr_user_id).order_by('-datetime')  # pylint: disable=no-member
+    media_type = user_reviews.get_media_type_display()
+    media_type_icon = Icon.get_media_icon(Icon(), user_reviews.media_type)
     return render(request, 'userpage.html', {"review_list": user_reviews})
 
 
