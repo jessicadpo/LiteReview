@@ -88,13 +88,16 @@ class CreateReviewForm(forms.Form):
                             widget=forms.TextInput(attrs={'class': 'create-review-text'}))
     creator = forms.CharField(label="Creator", min_length=1, max_length=500, required=True,
                               widget=forms.TextInput(attrs={'class': 'create-review-text'}))
-    media_type = forms.ChoiceField(label="Media Type", choices=Review.MediaTypes.choices, required=True,
+    media_type = forms.ChoiceField(label="Media Type", choices=Review.MediaTypes.choices,
+                                   required=True,
                                    widget=forms.Select(attrs={'class': 'create-review-dropdown'}))
     status = forms.ChoiceField(label="Status", choices=Review.ProgressStatus.choices, required=True,
                                widget=forms.Select(attrs={'class': 'create-review-dropdown'}))
-    rating = forms.FloatField(label="Rating (Optional)", required=False, min_value=0.0, max_value=10.0,
+    rating = forms.FloatField(label="Rating (Optional)", required=False,
+                              min_value=0.0, max_value=10.0,
                               widget=forms.NumberInput(attrs={'class': 'create-review-rating'}))
-    text = forms.CharField(label="Review (Optional)", required=False, widget=forms.Textarea(attrs={'class': 'create-review-textarea'}))
+    text = forms.CharField(label="Review (Optional)", required=False,
+                           widget=forms.Textarea(attrs={'class': 'create-review-textarea'}))
 
     class Meta:  # pylint: disable=too-few-public-methods
         """Allows rearranging of form elements"""

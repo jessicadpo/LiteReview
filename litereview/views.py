@@ -47,7 +47,8 @@ def homepage(request):
 
     review_form = CreateReviewForm()
 
-    return render(request, 'homepage.html', {"review_list": review_list, "review_form": review_form})
+    return render(request, 'homepage.html',
+                  {"review_list": review_list, "review_form": review_form})
 
 
 def signup_login(request):
@@ -92,7 +93,8 @@ def userpage(request, username):
 
     review_form = CreateReviewForm()
 
-    return render(request, 'userpage.html', {"review_list": user_reviews, "review_form": review_form})
+    return render(request, 'userpage.html',
+                  {"review_list": user_reviews, "review_form": review_form})
 
 
 def create_review(request):
@@ -106,8 +108,8 @@ def create_review(request):
         rating = form.cleaned_data['rating']
         text = form.cleaned_data['text']
         media_type = form.cleaned_data['media_type']
-
-        review = Review(user_id_id=user_id, title=title, author=author, rating=rating, text=text, media_type=media_type)
+        review = Review(user_id_id=user_id, title=title, author=author,
+                        rating=rating, text=text, media_type=media_type)
         review.save()
 
 
