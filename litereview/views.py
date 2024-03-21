@@ -24,16 +24,6 @@ review1.save()
 '''
 
 #########################################################################
-'''def cleanurl(path1):
-    """method for stripping the leading slash out of userpage urls"""
-    path1.replace('/', '')
-    return path1'''
-
-
-def logout_view(request):
-    logout(request)
-    return redirect("homepage")
-
 def homepage(request):
     """View for index page (AKA homepage)"""
     # Retrieve data from database
@@ -68,20 +58,18 @@ def signup_login(request):
                 user = authenticate(request, username=username, password=password)
                 login(request, user)
                 return redirect("user-profile-page", username=username)
-            else:
-                forms = {"signup_form": form, "login_form": LoginForm()}
-                return render(request, 'signup-login.html', {'forms': forms})
-        else:
-            form = LoginForm(request.POST)
-            if form.is_valid():
-                username = request.POST.get("username")
-                password = request.POST.get("password")
-                user = authenticate(request, username=username, password=password)
-                login(request, user)
-                return redirect("user-profile-page", username=username)
-            else:
-                forms = {"signup_form": SignUpForm(), "login_form": form}
-                return render(request, 'signup-login.html', {'forms': forms})
+            forms = {"signup_form": form, "login_form": LoginForm()}
+            return render(request, 'signup-login.html', {'forms': forms})
+
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            username = request.POST.get("username")
+            password = request.POST.get("password")
+            user = authenticate(request, username=username, password=password)
+            login(request, user)
+            return redirect("user-profile-page", username=username)
+        forms = {"signup_form": SignUpForm(), "login_form": form}
+        return render(request, 'signup-login.html', {'forms': forms})
     else:
         forms = {"signup_form": SignUpForm(), "login_form": LoginForm()}
     return render(request, 'signup-login.html', {'forms': forms})
