@@ -1,7 +1,7 @@
 """Module for litereview views"""
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login
 from .models import Review
 from .logger import Logger
 from .forms import SignUpForm, LoginForm
@@ -70,8 +70,7 @@ def signup_login(request):
             return redirect("user-profile-page", username=username)
         forms = {"signup_form": SignUpForm(), "login_form": form}
         return render(request, 'signup-login.html', {'forms': forms})
-    else:
-        forms = {"signup_form": SignUpForm(), "login_form": LoginForm()}
+    forms = {"signup_form": SignUpForm(), "login_form": LoginForm()}
     return render(request, 'signup-login.html', {'forms': forms})
 
 

@@ -76,8 +76,6 @@ class LoginForm(forms.Form):
         user = User.objects.filter(username=username)
         if user.count() == 0:
             raise ValidationError("Username does not exist.")
-        else:
-            user = authenticate(username=username, password=password)
-            if not user:
-                raise ValidationError("Password does not match our records.")
-
+        user = authenticate(username=username, password=password)
+        if not user:
+            raise ValidationError("Password does not match our records.")
