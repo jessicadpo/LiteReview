@@ -83,9 +83,8 @@ def logout_view(request):
 def userpage(request, username):
     """View for userpage"""
     curr_user_id = User.objects.get(username=username).id
-    user_reviews = Review.objects.filter(
-        user_id=curr_user_id).order_by('-datetime')  # pylint: disable=no-member
-    review_list = []  # pylint: disable=no-member
+    user_reviews = Review.objects.filter(user_id=curr_user_id).order_by('-datetime')  # pylint: disable=no-member
+    review_list = []
     for review in user_reviews:
         username = username  # pylint: disable=self-assigning-variable
         media_type = review.get_media_type_display()
