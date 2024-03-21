@@ -53,18 +53,18 @@
         <div class="review-container">
             <div class="review-details">
                 <div class="title-creator">
-                    <h3>{{ rev.title }}</h3>
-                    <div>{{ rev.author }}</div>
+                    <h3>{{ rev.review.title }}</h3>
+                    <div>{{ rev.review.author }}</div>
                 </div>
                 <div>
                     <img class="media-type" src="{{ rev.media_type_icon }}" alt="Media Type" style="width: 20px; height: auto;">
                     {{ rev.media_type }}
                 </div>
-                <div>{{ rev.datetime.date }}</div>
-                <div>Status: {{ rev.status }}</div>
+                <div>{{ rev.review.datetime.date }}</div>
+                <div>Status: {{ rev.review.status }}</div>
                 <div>
                     <img class="review-star" src="../static/icons/md_star.png" alt="Star Rating">
-                    <span>{{ rev.rating }} /10</span>
+                    <span>{{ rev.review.rating }} /10</span>
                 </div>
                 <div>
                     <button class="expand-button">Expand Review</button>
@@ -80,7 +80,7 @@
             </div>
         </div>
         <div class="expanded-review">
-            <p>{{ rev.text }}</p>
+            <p>{{ rev.review.text }}</p>
         </div>
     {% endfor %}
 </div>

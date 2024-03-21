@@ -90,11 +90,18 @@ def userpage(request, username):
     """View for userpage"""
     curr_user_id = User.objects.get(username=username).id
     user_reviews = Review.objects.filter(user_id=curr_user_id).order_by('-datetime')  # pylint: disable=no-member
+    review_list = []
+    for review in user_reviews:
+        username = username  # pylint: disable=self-assigning-variable
+        media_type = review.get_media_type_display()
+        media_type_icon = Icon.get_media_icon(Icon(), review.media_type)
+        full_record = {"username": username, "review": review, "media_type": media_type,
+                       "media_type_icon": media_type_icon}
+        review_list.append(full_record)
 
     review_form = CreateReviewForm()
-
     return render(request, 'userpage.html',
-                  {"review_list": user_reviews, "review_form": review_form})
+                  {"review_list": review_list, "review_form": review_form})
 
 
 def create_review(request):
