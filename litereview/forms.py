@@ -2,6 +2,7 @@
 
 
 from django import forms
+from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
@@ -42,7 +43,7 @@ class SignUpForm(UserCreationForm):  # pylint: disable=too-many-ancestors
             raise ValidationError("Email belongs to existing user!")
         return email
 
-    def clean_password2(self):  #
+    def clean_password2(self):
         """prevents mismatching password/confirms"""
         password1 = self.cleaned_data['password1']
         password2 = self.cleaned_data['password2']
@@ -67,3 +68,16 @@ class LoginForm(forms.Form):
         widget=forms.TextInput(attrs={'class': 'login-input', 'placeholder': 'Username'}))
     password = forms.CharField(label=False,
         widget=forms.PasswordInput(attrs={'class': 'login-input', 'placeholder': 'Password'}))
+
+    def clean(self):
+        """Ensures password and username match"""
+        username = self.cleaned_data.get('username')
+        password = self.cleaned_data['password']
+        user = User.objects.filter(username=username)
+        if user.count() == 0:
+            raise ValidationError("Username does not exist.")
+        else:
+            user = authenticate(username=username, password=password)
+            if not user:
+                raise ValidationError("Password does not match our records.")
+

@@ -1,7 +1,7 @@
 """Module for litereview views"""
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from .models import Review
 from .logger import Logger
 from .forms import SignUpForm, LoginForm
@@ -30,6 +30,10 @@ review1.save()
     return path1'''
 
 
+def logout_view(request):
+    logout(request)
+    return redirect("homepage")
+
 def homepage(request):
     """View for index page (AKA homepage)"""
     # Retrieve data from database
@@ -56,23 +60,28 @@ def signup_login(request):
     # NOTE: USERNAMES MUST BE UNIQUE
     if request.method == 'POST':
         if 'signup-submit' in request.POST:
-            forms = SignUpForm(request.POST)
-            if forms.is_valid():
-                forms.save()
-                username = forms.cleaned_data.get('username')
-                password = forms.cleaned_data.get('password1')
+            form = SignUpForm(request.POST)
+            if form.is_valid():
+                form.save()
+                username = form.cleaned_data.get('username')
+                password = form.cleaned_data.get('password1')
                 user = authenticate(request, username=username, password=password)
                 login(request, user)
                 return redirect("user-profile-page", username=username)
-            forms = {"signup_form": forms, "login_form": LoginForm()}
-            return render(request, 'signup-login.html', {'forms': forms})
-        forms = LoginForm(request.POST)
-        if forms.is_valid():
-            username = forms.cleaned_data.get('username')
-            password = forms.cleaned_data.get('password')
-            user = authenticate(request, username=username, password=password)
-            login(request, user)
-            return redirect("user-profile-page", username=username)
+            else:
+                forms = {"signup_form": form, "login_form": LoginForm()}
+                return render(request, 'signup-login.html', {'forms': forms})
+        else:
+            form = LoginForm(request.POST)
+            if form.is_valid():
+                username = request.POST.get("username")
+                password = request.POST.get("password")
+                user = authenticate(request, username=username, password=password)
+                login(request, user)
+                return redirect("user-profile-page", username=username)
+            else:
+                forms = {"signup_form": SignUpForm(), "login_form": form}
+                return render(request, 'signup-login.html', {'forms': forms})
     else:
         forms = {"signup_form": SignUpForm(), "login_form": LoginForm()}
     return render(request, 'signup-login.html', {'forms': forms})
