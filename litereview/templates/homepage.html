@@ -22,13 +22,21 @@
             <input type="text" placeholder="Search...">
             <button type="submit">Search</button>
         </div>
-        <div class="user">
-            <button id="account-button" onclick="open_my_account_modal()">My Account</button>
-            <a href="logout"><button>Logout</button></a>
-            <a href="signup-login">
-                <button class="login-btn">Login / Sign Up</button>
-            </a>
-        </div>
+        {% if request.user.is_authenticated %}
+            <div class="user">
+                <button id="account-button" onclick="open_my_account_modal()">My Account</button>
+                <a href="logout">
+                    <button>Logout</button>
+                </a>
+            </div>
+        {% endif %}
+        {% if request.user.is_authenticated == False %}
+            <div class="user">
+                <a href="signup-login">
+                    <button class="login-btn">Login / Sign Up</button>
+                </a>
+            </div>
+        {% endif %}
     </div>
 </header>
 

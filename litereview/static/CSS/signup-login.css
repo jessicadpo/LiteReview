@@ -71,6 +71,19 @@ body {
     font-size: 1.3em;
 }
 
+.form {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 50%;
+}
+
 .signup-input,
 .login-input {
     width: 300px;
