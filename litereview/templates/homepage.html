@@ -7,115 +7,155 @@
     <title>LiteReview</title>
     <link rel="icon" type="image" href="../static/icons/lite-logo.png">
     <link rel="stylesheet" href="../static/CSS/homepage.css">
-    <link rel="stylesheet" href="../static/CSS/review_modal.css.css">
+    <link rel="stylesheet" href="../static/CSS/review_modal.css">
 
 </head>
 
 <body>
-    <header>
-        <div class="top-bar">
-            <a href="http://127.0.0.1:8000/" class="logo">
-                <img src="../static/icons/lite-logo.png" alt="Logo">
-                <b class="webname">LiteReview</b>
+<header>
+    <div class="top-bar">
+        <a href="http://127.0.0.1:8000/" class="logo">
+            <img src="../static/icons/lite-logo.png" alt="Logo">
+            <b class="webname">LiteReview</b>
+        </a>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+            <button type="submit">Search</button>
+        </div>
+        <div class="user">
+            <button id="account-button" onclick="open_my_account_modal()">My Account</button>
+            <a href="logout"><button>Logout</button></a>
+            <a href="signup-login">
+                <button class="login-btn">Login / Sign Up</button>
             </a>
-            <div class="search-bar">
-                <input type="text" placeholder="Search...">
-                <button type="submit">Search</button>
-            </div>
-            <div class="user">
-                <a href="signup-login">
-                    <button class="login-btn">Login / Sign Up</button>
-                </a>
-            </div>
         </div>
-    </header>
-    
-    <!--Icons inside this div, to be split further-->
-    <div id="icons" class="closed">
-        <!--Image icons inside this div-->
-		<div class="icon-images">
-            <div class="icon1">
+    </div>
+</header>
+
+<!--Icons inside this div, to be split further-->
+<div id="icons" class="closed">
+    <!--Image icons inside this div-->
+    <div class="icon-images">
+        <div class="icon1">
             <img id="movie" src="static/icons/MOV.png" alt="A clapperboard"/>
-            </div>
-            <div class="icon1">
+        </div>
+        <div class="icon1">
             <img id="tv" src="static/icons/TVS.png" alt="A television"/>
-            </div>
-            <div class="icon1">
+        </div>
+        <div class="icon1">
             <img id="book" src="static/icons/BOK.png" alt="A book"/>
-            </div>
-            <div class="icon1">
+        </div>
+        <div class="icon1">
             <img id="music" src="static/icons/MUS.png" alt="A music note in a box"/>
-			</div>
-		</div>
-        <!--Text icons inside this div-->
-        <div class="icon-text">
-            <div class="icon">Track your progress</div>
-            <div class="icon">Write reviews on the things you love (or hate) the most</div>
-            <div class="icon">Rate on a 10-star scale (with halves)</div>
-            <div class="icon">See what others are up to</div>
         </div>
     </div>
+    <!--Text icons inside this div-->
+    <div class="icon-text">
+        <div class="icon">Track your progress</div>
+        <div class="icon">Write reviews on the things you love (or hate) the most</div>
+        <div class="icon">Rate on a 10-star scale (with halves)</div>
+        <div class="icon">See what others are up to</div>
+    </div>
+</div>
 
-    <!-- Modal Button -->
-    <button class="circle-button" id="circle-Button">+</button>
+<div id="account-modal" class="modal">
 
-    <div id="myModal" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-            <div class="input-group">
-                <p>Title</p>
-                <input type="text" id="titleInput">
-            </div>
-            <div class="input-group">
-                <p>Creator</p>
-                <input type="text" id="authorInput">
-            </div>
-            <div class="input-group">
-                <p>Media Type</p>
-                <select id="mediaTypeSelect">
-                    <option value="movie">Movie</option>
-                    <option value="tvShow">TV Show</option>
-                    <option value="book">Book</option>
-                    <option value="comicBook">Comic Book</option>
-                    <option value="manga">Manga</option>
-                    <option value="music">Music</option>
-                </select>
-            </div>
-            <div class="input-group">
-                <p>Status</p>
-                <select id="completionSelect">
-                    <option value="In Progress">In Progress</option>
-                    <option value="Completed">Completed</option>
-                    <option value="Dropped">Dropped</option>
-                </select>
-            </div>
-            <div class="input-group">
-                <p>Rating (Optional)</p>
-                <div id="rating-container">
-                    <input type="text" id="ratingInput">
-                    <p>/ 10</p>
-                    <img id="star" src="static/icons/md_star.png" alt="A black star"/>
-                </div>
-            </div>
-            <div class="input-group">
-                <p>Review (Optional)</p>
-                <textarea id="reviewTextarea" rows="20"></textarea>
-            </div>
-            <br>
-            <div id="button-section">
-                <button id="submitReviewBtn">Create Review</button>
-                <button class="close" id="cancelBtn">Cancel</button>
-            </div>
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="input-group">
+            <p>New Username</p>
+            <input type="text" id="newUsr">
+        </div>
+        <hr>
+        <div class="input-group">
+            <p>New Email</p>
+            <input type="text" id="newEmail">
+        </div>
+        <div class="input-group">
+            <p>Confirm Email</p>
+            <input type="text" id="ConfirmEmail">
+        </div>
+        <hr>
+        <div class="input-group">
+            <p>Old Password</p>
+            <input type="text" id="newPasswd">
+        </div>
+        <div class="input-group">
+            <p>New Password</p>
+            <input type="text" id="confirmPasswd">
+        </div>
+        <br>
+        <div id="button-section-account">
+            <button id="deleteAcc">Delete Account</button>
+            <button id="applyChange">Apply Changes</button>
+            <button class="close" id="accountCancelBtn">Cancel</button>
         </div>
     </div>
+</div>
 
- 	<br>
+<!--Only shows create review modal if user is authenticated.
+I am immensely surprised how simple that worked.-->
+{% if request.user.is_authenticated %}
+    <button class="circle-button" onclick="open_create_review_modal()" id="circle-Button">+</button>
+{% endif %}
 
- 	<b class="review-section-title">Recent Reviews</b><br><br><br>
-    <div class="review-section">
-        <!-- Reviews will be in same style and will be shown based on user page -->
-        {% for rev in review_list %}
+<div id="review-modal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="input-group">
+            <p>Title</p>
+            <input type="text" id="titleInput">
+        </div>
+        <div class="input-group">
+            <p>Creator</p>
+            <input type="text" id="authorInput">
+        </div>
+        <div class="input-group">
+            <p>Media Type</p>
+            <select id="mediaTypeSelect">
+                <option value="movie">Movie</option>
+                <option value="tvShow">TV Show</option>
+                <option value="book">Book</option>
+                <option value="comicBook">Comic Book</option>
+                <option value="manga">Manga</option>
+                <option value="music">Music</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <p>Status</p>
+            <select id="completionSelect">
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+                <option value="Dropped">Dropped</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <p>Rating (Optional)</p>
+            <div id="rating-container">
+                <input type="text" id="ratingInput">
+                <span id="rating-denominator">/ 10</span>
+                <img id="star" src="static/icons/md_star.png" alt="A white star"/>
+            </div>
+        </div>
+        <div class="input-group">
+            <p>Review (Optional)</p>
+            <textarea id="reviewTextarea" rows="20"></textarea>
+        </div>
+        <br>
+        <div id="button-section-review">
+            <button id="submitReviewBtn">Create Review</button>
+            <button class="close" id="reviewCancelBtn">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<br>
+
+<b class="review-section-title">Recent Reviews</b><br><br><br>
+<div class="review-section">
+    <!-- Reviews will be in same style and will be shown based on user page -->
+    {% for rev in review_list %}
         <div class="review-item">
             <a href="{% url 'user-profile-page' rev.username %}">
                 <button class="username-btn">{{ rev.username }}</button>
@@ -126,24 +166,27 @@
                         <h3>{{ rev.review.title }}</h3>
                         <div>{{ rev.review.author }}</div>
                     </div>
-                    <div><img class="media-type" src="{{ rev.media_type_icon }}" alt="Media Type" style="width: 20px; height: auto;">{{ rev.media_type }}</div>
+                    <div><img class="media-type" src="{{ rev.media_type_icon }}" alt="Media Type"
+                              style="width: 20px; height: auto;">{{ rev.media_type }}</div>
                     <div>{{ rev.review.datetime }}</div>
-                    <div>Status: Complete</div>
+                    <div>Status: {{ rev.review.status }}</div>
                     <div>
-                        <img src="../static/icons/md_star.png" alt="Star Rating" style="width: 20px; height: auto;">
-                        <span>{{ rev.review.rating}} /10</span>
+                        <img id="review-star" src="../static/icons/md_star.png" alt="Star Rating">
+                        <span>{{ rev.review.rating }} /10</span>
                     </div>
-                    <div><button class="expand-button">Expand Review</button></div>
+                    <div>
+                        <button class="expand-button">Expand Review</button>
+                    </div>
                 </div>
                 <div class="expanded-review">
-                   <p>{{ rev.review.text }}</p>
+                    <p>{{ rev.review.text }}</p>
                 </div>
+            </div>
         </div>
-        {% endfor %}
-    </div>
+    {% endfor %}
 </div>
 
-<script src="../static/JavaScript/homepage.js"></script>
+<script src="../static/JavaScript/review_modal.js"></script>
 
 </body>
 </html>
