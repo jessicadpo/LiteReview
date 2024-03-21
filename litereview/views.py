@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from .models import Review
 from .logger import Logger
-from .forms import SignUpForm, LoginForm
+from .forms import SignUpForm, LoginForm, CreateReviewForm
 
 #########################################################################
 # PLACEHOLDER RECORDS (DELETE BEFORE SUBMIT)
@@ -42,7 +42,9 @@ def homepage(request):
                        "media_type_icon": media_type_icon}
         review_list.append(full_record)
 
-    return render(request, 'homepage.html', {"review_list": review_list})
+    review_form = CreateReviewForm()
+
+    return render(request, 'homepage.html', {"review_list": review_list, "review_form": review_form})
 
 
 def signup_login(request):
@@ -84,7 +86,10 @@ def userpage(request, username):
     """View for userpage"""
     curr_user_id = User.objects.get(username=username).id
     user_reviews = Review.objects.filter(user_id=curr_user_id).order_by('-datetime')  # pylint: disable=no-member
-    return render(request, 'userpage.html', {"review_list": user_reviews})
+
+    review_form = CreateReviewForm()
+
+    return render(request, 'userpage.html', {"review_list": user_reviews, "review_form": review_form})
 
 
 class Icon:  # pylint: disable=too-few-public-methods
