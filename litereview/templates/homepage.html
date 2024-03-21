@@ -23,6 +23,8 @@
             <button type="submit">Search</button>
         </div>
         <div class="user">
+            <button id="account-button" onclick="open_my_account_modal()">My Account</button>
+            <a href="logout"><button>Logout</button></a>
             <a href="signup-login">
                 <button class="login-btn">Login / Sign Up</button>
             </a>
@@ -55,9 +57,6 @@
         <div class="icon">See what others are up to</div>
     </div>
 </div>
-
-<button id="account-button" onclick="open_my_account_modal()">My Account</button>
-<a href="logout"><button>logout</button></a>
 
 <div id="account-modal" class="modal">
 
@@ -158,33 +157,33 @@ I am immensely surprised how simple that worked.-->
     <!-- Reviews will be in same style and will be shown based on user page -->
     {% for rev in review_list %}
         <div class="review-item">
-        <a href="{% url 'user-profile-page' rev.username %}">
-            <button class="username-btn">{{ rev.username }}</button>
-        </a>
-        <div class="review-container">
-            <div class="review-details">
-                <div class="title-creator">
-                    <h3>{{ rev.review.title }}</h3>
-                    <div>{{ rev.review.author }}</div>
+            <a href="{% url 'user-profile-page' rev.username %}">
+                <button class="username-btn">{{ rev.username }}</button>
+            </a>
+            <div class="review-container">
+                <div class="review-details">
+                    <div class="title-creator">
+                        <h3>{{ rev.review.title }}</h3>
+                        <div>{{ rev.review.author }}</div>
+                    </div>
+                    <div><img class="media-type" src="{{ rev.media_type_icon }}" alt="Media Type"
+                              style="width: 20px; height: auto;">{{ rev.media_type }}</div>
+                    <div>{{ rev.review.datetime }}</div>
+                    <div>Status: {{ rev.review.status }}</div>
+                    <div>
+                        <img id="review-star" src="../static/icons/md_star.png" alt="Star Rating">
+                        <span>{{ rev.review.rating }} /10</span>
+                    </div>
+                    <div>
+                        <button class="expand-button">Expand Review</button>
+                    </div>
                 </div>
-                <div><img class="media-type" src="{{ rev.media_type_icon }}" alt="Media Type"
-                          style="width: 20px; height: auto;">{{ rev.media_type }}</div>
-                <div>{{ rev.review.datetime }}</div>
-                <div>Status: Complete</div>
-                <div>
-                    <img id="review-star" src="../static/icons/md_star.png" alt="Star Rating">
-                    <span>{{ rev.review.rating }} /10</span>
+                <div class="expanded-review">
+                    <p>{{ rev.review.text }}</p>
                 </div>
-                <div>
-                    <button class="expand-button">Expand Review</button>
-                </div>
-            </div>
-            <div class="expanded-review">
-                <p>{{ rev.review.text }}</p>
             </div>
         </div>
     {% endfor %}
-    </div>
 </div>
 
 <script src="../static/JavaScript/homepage.js"></script>
