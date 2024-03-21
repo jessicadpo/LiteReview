@@ -2,7 +2,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
-from django.forms.models import model_to_dict
 from .models import Review
 from .logger import Logger
 from .forms import SignUpForm, LoginForm
@@ -86,9 +85,9 @@ def userpage(request, username):
     curr_user_id = User.objects.get(username=username).id
     user_reviews = Review.objects.filter(
         user_id=curr_user_id).order_by('-datetime')  # pylint: disable=no-member
-    review_list = []
+    review_list = []  # pylint: disable=no-member
     for review in user_reviews:
-        username = username
+        username = username  # pylint: disable=self-assigning-variable
         media_type = review.get_media_type_display()
         media_type_icon = Icon.get_media_icon(Icon(), review.media_type)
         full_record = {"username": username, "review": review, "media_type": media_type,
