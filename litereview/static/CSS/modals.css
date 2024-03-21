@@ -15,9 +15,11 @@
 
 /* Modal Content */
 .modal-content {
+    display: flex;
+    flex-flow: column;
     background-color: rgb(0 64 119);
     margin: auto;
-    padding: 20px;
+    padding: 2% 5%;
     border: 1px solid #888;
     width: 60%;
     position: relative;
@@ -25,6 +27,64 @@
     color: #ccc;
 }
 
+.field-wrapper {
+    display: flex;
+    flex-flow: row;
+    font-size: 1.5em;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+.field-wrapper label {
+    min-width: 200px;
+    width: 40%;
+}
+
+.create-review-text,
+.create-review-dropdown,
+.create-review-textarea {
+    min-width: 340px;
+    width: 60%;
+    height: 50px;
+}
+
+.create-review-rating {
+    min-width: 30%;
+    height: 50px;
+    margin-right: 10px;
+}
+
+textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+.button-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.modal-button {
+    font-size: 1.5em;
+    padding: 10px 30px;
+    margin: 0 10px;
+}
+
+#rating-denominator {
+    font-size: 2em;
+}
+
+#star {
+    height: 50px;
+    width: auto;
+    margin-left: 20px;
+}
+
+/* TO REPLACE ONCE MY ACCOUNT FORM IS DJANGO FORM */
 .input-group {
     display: grid;
     grid-template-columns: minmax(215px, 40%) minmax(340px, 60%);
@@ -52,34 +112,4 @@ textarea {
 .input-group textarea {
     font-size: 1em;
     height: 50px;
-}
-
-#button-section {
-    display: flex;
-    justify-content: center;
-}
-
-#button-section button {
-    font-size: 1.5em;
-    padding: 10px 30px;
-    margin: 0 10px;
-}
-
-#rating-container {
-    display: flex;
-    align-items: center;
-}
-
-#rating-container input {
-    margin-right: 10px;
-}
-
-#rating-denominator {
-    font-size: 2em;
-}
-
-#star {
-    height: 50px;
-    width: auto;
-    margin-left: 20px;
 }

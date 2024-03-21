@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from .models import Review
 from .logger import Logger
-from .forms import SignUpForm, LoginForm
+from .forms import SignUpForm, LoginForm, CreateReviewForm
 
 #########################################################################
 # PLACEHOLDER RECORDS (DELETE BEFORE SUBMIT)
@@ -26,13 +26,16 @@ review1.save()
 #########################################################################
 def homepage(request):
     """View for index page (AKA homepage)"""
+    if request.method == 'POST':
+        create_review(request)
+
     # Retrieve data from database
     # Disabling pylint check for Review.objects because this is how it works in Django
     all_reviews = Review.objects.all()  # pylint: disable=no-member
     all_users = User.objects.all()
 
     review_list = []
-    twenty_most_recent_reviews = all_reviews.order_by('-id')[:20:-1]
+    twenty_most_recent_reviews = all_reviews.order_by('-id')[:20:1]
     for review in twenty_most_recent_reviews:
         user_id = review.user_id_id
         username = all_users.get(pk=user_id).username
@@ -42,7 +45,10 @@ def homepage(request):
                        "media_type_icon": media_type_icon}
         review_list.append(full_record)
 
-    return render(request, 'homepage.html', {"review_list": review_list})
+    review_form = CreateReviewForm()
+
+    return render(request, 'homepage.html',
+                  {"review_list": review_list, "review_form": review_form})
 
 
 def signup_login(request):
@@ -92,7 +98,26 @@ def userpage(request, username):
         full_record = {"username": username, "review": review, "media_type": media_type,
                        "media_type_icon": media_type_icon}
         review_list.append(full_record)
-    return render(request, 'userpage.html', {"review_list": review_list})
+
+    review_form = CreateReviewForm()
+    return render(request, 'userpage.html',
+                  {"review_list": review_list, "review_form": review_form})
+
+
+def create_review(request):
+    """Function (used by views) to create a review"""
+    form = CreateReviewForm(request.POST)
+    if form.is_valid():
+        # Need: user_id, title, author, status, rating, text, media_type
+        user_id = request.user.id
+        title = form.cleaned_data['title']
+        author = form.cleaned_data['creator']
+        rating = form.cleaned_data['rating']
+        text = form.cleaned_data['text']
+        media_type = form.cleaned_data['media_type']
+        review = Review(user_id_id=user_id, title=title, author=author,
+                        rating=rating, text=text, media_type=media_type)
+        review.save()
 
 
 class Icon:  # pylint: disable=too-few-public-methods

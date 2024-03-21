@@ -32,9 +32,9 @@ class Review(models.Model):
     status = models.CharField(max_length=128, choices=ProgressStatus.choices,
                               default="In Progress", blank=False, null=False)
     '''date and time of the review, set at creation'''
-    rating = models.IntegerField(blank=False, null=False)
+    rating = models.IntegerField(null=True)
     '''rating given with the review'''
-    text = models.CharField(max_length=1024, blank=False, null=False)
+    text = models.CharField(max_length=9999, null=True)
     '''main text of the review'''
     media_type = models.CharField(
         max_length=3,
