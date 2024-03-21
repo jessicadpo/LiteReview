@@ -75,6 +75,7 @@ def signup_login(request):
 
 
 def logout_view(request):
+    """View for Logout Functionality"""
     logout(request)
     return redirect("homepage")
 
