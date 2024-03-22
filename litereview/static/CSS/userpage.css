@@ -174,11 +174,11 @@ header {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 20px;
+    padding: 0 18px;
+    color: #ccc;
     border: 1px solid #ccc;
     border-radius: 5px 5px 0 0;
     background-color: #005ba8;
-    color: #ccc;
 }
 
 .expand-button {
@@ -212,4 +212,6 @@ header {
     border-top-style: none;
     color: #ccc;
     margin-bottom: 20px;
+    overflow: hidden;
+    display: none;
 }

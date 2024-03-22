@@ -155,6 +155,8 @@ body {
     justify-content: center;
     padding: 2.5% 5%;
     background-color: #001c34;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
 }
 
 .review-item {
@@ -181,7 +183,7 @@ body {
 }
 
 .username-btn {
-    float: center;
+    float: left;
     padding: 10% 15%;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -245,4 +247,6 @@ body {
     border: 1px solid #ccc;
     border-top-style: none;
     color: #ccc;
+    overflow: hidden;
+    display: none;
 }
