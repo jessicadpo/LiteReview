@@ -101,20 +101,6 @@ body {
     width: 50vh;
 }
 
-/* Modal Content */
-#button-section-review,
-#button-section-account {
-    display: flex;
-    justify-content: center;
-}
-
-#button-section-review button,
-#button-section-account button {
-    font-size: 1.5em;
-    padding: 10px 30px;
-    margin: 0 10px;
-}
-
 /* CSS for the modal button */
 .circle-button {
     width: 50px;
@@ -204,6 +190,12 @@ body {
     border-radius: 5px 5px 0 0;
     background-color: #005ba8;
     color: #ccc;
+}
+
+.title-creator * {
+    width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .media-type {

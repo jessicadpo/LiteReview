@@ -39,7 +39,7 @@
 </header>
 
 <div class="user-bar">
-    <b class="username">{{ rev.username }}</b>
+    <b class="username">{{ request.user.username }}</b>
     <div class="actions">
         <button class="filter-btn">Filter</button>
         <button class="sort-btn">Sort</button>
@@ -53,18 +53,18 @@
         <div class="review-container">
             <div class="review-details">
                 <div class="title-creator">
-                    <h3>{{ rev.title }}</h3>
-                    <div>{{ rev.author }}</div>
+                    <h3>{{ rev.review.title }}</h3>
+                    <div>{{ rev.review.author }}</div>
                 </div>
                 <div>
                     <img class="media-type" src="{{ rev.media_type_icon }}" alt="Media Type" style="width: 20px; height: auto;">
                     {{ rev.media_type }}
                 </div>
-                <div>{{ rev.datetime }}</div>
-                <div>Status: {{ rev.status }}</div>
+                <div>{{ rev.review.datetime.date }}</div>
+                <div>Status: {{ rev.review.status }}</div>
                 <div>
                     <img class="review-star" src="../static/icons/md_star.png" alt="Star Rating">
-                    <span>{{ rev.rating }} /10</span>
+                    <span>{{ rev.review.rating }} /10</span>
                 </div>
                 <div>
                     <button class="expand-button">Expand Review</button>
@@ -80,7 +80,7 @@
             </div>
         </div>
         <div class="expanded-review">
-            <p>{{ rev.text }}</p>
+            <p>{{ rev.review.text }}</p>
         </div>
     {% endfor %}
 </div>
@@ -112,10 +112,10 @@
             <input type="text" id="confirmPasswd">
         </div>
         <br>
-        <div id="button-section-account">
-            <button id="deleteAcc">Delete Account</button>
-            <button id="applyChange">Apply Changes</button>
-            <button class="close" id="accountCancelBtn">Cancel</button>
+        <div class="button-section">
+            <button id="deleteAcc" class="modal-button">Delete Account</button>
+            <button id="applyChange" class="modal-button">Apply Changes</button>
+            <button class="close modal-button" id="accountCancelBtn">Cancel</button>
         </div>
     </div>
 </div>
@@ -130,50 +130,25 @@ I am immensely surprised how simple that worked.-->
 
     <!-- Modal content -->
     <div class="modal-content">
-        <div class="input-group">
-            <p>Title</p>
-            <input type="text" id="titleInput">
-        </div>
-        <div class="input-group">
-            <p>Creator</p>
-            <input type="text" id="authorInput">
-        </div>
-        <div class="input-group">
-            <p>Media Type</p>
-            <select id="mediaTypeSelect">
-                <option value="movie">Movie</option>
-                <option value="tvShow">TV Show</option>
-                <option value="book">Book</option>
-                <option value="comicBook">Comic Book</option>
-                <option value="manga">Manga</option>
-                <option value="music">Music</option>
-            </select>
-        </div>
-        <div class="input-group">
-            <p>Status</p>
-            <select id="completionSelect">
-                <option value="In Progress">In Progress</option>
-                <option value="Completed">Completed</option>
-                <option value="Dropped">Dropped</option>
-            </select>
-        </div>
-        <div class="input-group">
-            <p>Rating (Optional)</p>
-            <div id="rating-container">
-                <input type="text" id="ratingInput">
-                <span id="rating-denominator">/ 10</span>
-                <img id="star" src="static/icons/md_star.png" alt="A white star"/>
+        <form method="post">
+            {% csrf_token %}
+            {% for field in review_form %}
+            <div class="field-wrapper">
+                {{ field.label_tag }}
+                {{ field }}
+                {{ field.errors }}
+                {% if 'create-review-rating' in field.field.widget.attrs.class %}
+                    <span id="rating-denominator">/ 10</span>
+                    <img id="star" src="static/icons/md_star.png" alt="A white star"/>
+                {% endif %}
             </div>
-        </div>
-        <div class="input-group">
-            <p>Review (Optional)</p>
-            <textarea id="reviewTextarea" rows="20"></textarea>
-        </div>
-        <br>
-        <div id="button-section-review">
-            <button id="submitReviewBtn">Create Review</button>
-            <button class="close" id="reviewCancelBtn">Cancel</button>
-        </div>
+            {% endfor %}
+            <br>
+            <div class="button-section">
+                <input name="create-review-submit" type="submit" id="submitReviewBtn" class="modal-button" value="Create Review"/>
+                <button class="close modal-button" id="reviewCancelBtn">Cancel</button>
+            </div>
+        </form>
     </div>
 </div>
 
