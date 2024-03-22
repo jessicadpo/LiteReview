@@ -88,6 +88,9 @@ def logout_view(request):
 
 def userpage(request, username):
     """View for userpage"""
+    if request.method == 'POST':
+        create_review(request)
+
     curr_user_id = User.objects.get(username=username).id
     user_reviews = Review.objects.filter(user_id=curr_user_id).order_by('-datetime')  # pylint: disable=no-member
     review_list = []
