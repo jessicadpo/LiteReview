@@ -29,8 +29,7 @@ class Review(models.Model):
     '''main/relevant author of the work'''
     datetime = models.DateTimeField(auto_now_add=True, blank=False, null=False)
     '''progress status'''
-    status = models.CharField(max_length=128, choices=ProgressStatus.choices,
-                              default="In Progress", blank=False, null=False)
+    status = models.CharField(max_length=128, choices=ProgressStatus.choices, blank=False, null=False)
     '''date and time of the review, set at creation'''
     rating = models.IntegerField(null=True)
     '''rating given with the review'''

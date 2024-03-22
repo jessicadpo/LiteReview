@@ -109,18 +109,20 @@ def userpage(request, username):
 
 def create_review(request):
     """Function (used by views) to create a review"""
-    form = CreateReviewForm(request.POST)
-    if form.is_valid():
-        # Need: user_id, title, author, status, rating, text, media_type
-        user_id = request.user.id
-        title = form.cleaned_data['title']
-        author = form.cleaned_data['creator']
-        rating = form.cleaned_data['rating']
-        text = form.cleaned_data['text']
-        media_type = form.cleaned_data['media_type']
-        review = Review(user_id_id=user_id, title=title, author=author,
-                        rating=rating, text=text, media_type=media_type)
-        review.save()
+    if 'create-review-submit' in request.POST:
+        form = CreateReviewForm(request.POST)
+        if form.is_valid():
+            # Need: user_id, title, author, status, rating, text, media_type
+            user_id = request.user.id
+            title = form.cleaned_data['title']
+            author = form.cleaned_data['creator']
+            rating = form.cleaned_data['rating']
+            text = form.cleaned_data['text']
+            media_type = form.cleaned_data['media_type']
+            status = form.cleaned_data['status']
+            review = Review(user_id_id=user_id, title=title, author=author,
+                            rating=rating, text=text, media_type=media_type, status=status)
+            review.save()
 
 
 class Icon:  # pylint: disable=too-few-public-methods
