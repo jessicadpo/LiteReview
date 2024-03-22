@@ -141,7 +141,7 @@ header {
     width: 95%;
     font-size: 1.5em;
     background-color: #005ba8;
-    margin-top: 15px;
+    margin-top: 30px;
 }
 
 .title-creator * {
@@ -167,7 +167,7 @@ header {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 0 18px;
+    padding: 20px;
     color: #ccc;
     border: 1px solid #ccc;
     border-radius: 5px 5px 0 0;
