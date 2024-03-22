@@ -37,8 +37,10 @@ By the end of March 2024, we will have designed, developed, and implemented both
 ![my-account-modal.png](screenshots%2Fmy-account-modal.png)
 
 <ins>User profile page (logged in, collapsed)</ins>
+![userpage-logged-in-collapsed.png](screenshots%2Fuserpage-logged-in-collapsed.png)
 
 <ins>User profile page (logged out, expanded)</ins>
+![userpage-logged-out-expanded.png](screenshots%2Fuserpage-logged-out-expanded.png)
 
 ### Features (Progress Summary)
 > **Done**
