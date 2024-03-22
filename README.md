@@ -20,56 +20,70 @@ By the end of March 2024, we will have designed, developed, and implemented both
   - By definition, this means all pull requests passed all linters & automatic tests, and have been peer-reviewed.
 
 **End-Sprint Screenshot(s)**
-![homepage-sprint-1.png](screenshots%2Fhomepage-sprint-1.png)
-![signup-login-sprint-1.png](screenshots%2Fsignup-login-sprint-1.png)
-![userpage-sprint-1.png](screenshots%2Fuserpage-sprint-1.png)
-![create-review-modal-sprint-1.png](screenshots%2Fcreate-review-modal-sprint-1.png)
-![my-account-modal-sprint-1.png](screenshots%2Fmy-account-modal-sprint-1.png)
+
+<ins>Homepage (logged out)</ins>
+![homepage-logged-out.png](screenshots%2Fhomepage-logged-out.png)
+
+<ins>Homepage (logged in)</ins>
+![homepage-logged-in.png](screenshots%2Fhomepage-logged-in.png)
+
+<ins>Sign Up / Login page</ins>
+![signup-login-page.png](screenshots%2Fsignup-login-page.png)
+
+<ins>Create Review modal</ins>
+![create-review-modal.png](screenshots%2Fcreate-review-modal.png)
+
+<ins>My Account modal</ins>
+![my-account-modal.png](screenshots%2Fmy-account-modal.png)
+
+<ins>User profile page (logged in, collapsed)</ins>
+![userpage-logged-in-collapsed.png](screenshots%2Fuserpage-logged-in-collapsed.png)
+
+<ins>User profile page (logged out, expanded)</ins>
+![userpage-logged-out-expanded.png](screenshots%2Fuserpage-logged-out-expanded.png)
 
 ### Features (Progress Summary)
 > **Done**
 > - Basic HTML & CSS layout of sign-up/log-in page
 > - Basic HTML & CSS layout of homepage
 > - Basic HTML & CSS layout of user page (template)
-> - Basic HTML & CSS layout of "Create Review" & "My Account" modal forms (in temporary files, ready to be merged into homepage & user page next sprint)
+> - Basic HTML & CSS layout of "Create Review" & "My Account" modal forms
 > - **JavaScript:** Create Review & My Account forms appear/disappear on button click
-> - **Backend:** Database models for user accounts and reviews (ready for next sprint)
+> - **Backend:** Database models for user accounts and reviews
+> - CSS colors for all pages
+> - Replace placeholder logo and icons with "official" versions 
+> - Plug data received from views into HTML templates (i.e., implement curly brackets)
+> - Replaced "Signup/Login button" with "My Account" & "Logout" button in top-right corner when user is logged in
+> - Hide "+" button if user is logged out
+> - Make reviews collapsible
+> - Form validation for Sign-up & login forms
+> - Generate a unique url for every new user signing up 
+> - Login functionality 
+> - Add users in database when receive valid POST requests 
+> - Add reviews in database when receive valid POST requests 
+> - Retrieve the 20 most recent reviews to display on homepage 
+> - Retrieve all reviews made by a user to display on their user page
 
 > **Not yet done**
 > - <u>**HTML & CSS**</u>
->   - CSS colors for all pages
 >   - Responsive layout for mobile devices
 >   - Add current account information to "My Account" modal
->   - Replace placeholder logo and icons with "official" versions
->   - Plug data received from views into HTML templates (i.e., implement curly brackets)
 >   - "Delete Account" & "Delete Review" confirmation popup
 >   - "Edit Account" modal form (variation of Create Review form)
->   - Dropdown menu for "My Account" & "Sign out" options in top-right corner of homepage & user pages
 >   - Filter menu
 >   - Sort menu
 > - <u>**JavaScript**</u>
 >   - Show/Hide Filter & Sort menus on button click
->   - Make reviews collapsible
->   - Show search results as a dropdown menu when the search bar is not empty
->   - Switch top-right dropdown menu to a button saying "Sign up / Login" if user is logged out
->   - Hide "+" button if user is logged out
+>   - Access user profile pages via search bar
 >   - Only show "Edit Review" buttons if user is viewing their own page
->   - Form validation for Sign-Up, Login, Create Review, Edit Review & Edit Account forms
+>   - Form validation for Create Review, Edit Review & Edit Account forms
 >   - Pre-fill "Edit Review" form with review data
 >   
 > - <u>**Backend**</u>
 >   - Filtering reviews
 >   - Sorting reviews
->   - Generate a unique url for every new user signing up
->   - Login functionality (might already be handled by Django Authentication system?)
->   - (More) Form validation for Sign-Up, Login, Create Review, Edit Review & Edit Account forms
->   - Add/Update/Delete users in database when receive valid POST requests
->   - Add/Update/Delete reviews in database when receive valid POST requests
+>   - Update/Delete users in database when receive valid POST requests
+>   - Update/Delete reviews in database when receive valid POST requests
 >   - Retrieve the 20 most recent reviews to display on homepage
 >   - Retrieve all reviews made by a user to display on their user page
->   - Retrieve all users whose usernames match the text entered in the search bar
 >   - Pre-fill "My Account" form with logged-in user's account data
-
-> **Cancelled**
-> - "Add Creator" button in "Create Review" form (multiple creators will be treated as a single string; users can use whatever punctuation they want to separate individual names)
-> - Documentation for website colors

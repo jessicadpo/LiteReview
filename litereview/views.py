@@ -6,22 +6,6 @@ from .models import Review
 from .logger import Logger
 from .forms import SignUpForm, LoginForm, CreateReviewForm
 
-#########################################################################
-# PLACEHOLDER RECORDS (DELETE BEFORE SUBMIT)
-
-# pylint: disable=pointless-string-statement
-# Will be deleted before submit anyway
-'''
-PLACEHOLDER RECORDS -- DO NOT UNCOMMENT (already created in database)
-user1 = User(username='JSmith2000', password='password123',
-             email='jsmith@gmail.com')
-user1.save()
-
-review1 = Review(user_id_id=1, title='Placeholder book', author='John Smith',
-                 datetime='01/01/2024', rating=8, text='fdshklfsaldkfjsdalkfjsdalkfs',
-                 media_type="BOK")
-review1.save()
-'''
 
 #########################################################################
 def homepage(request):
@@ -104,7 +88,7 @@ def userpage(request, username):
 
     review_form = CreateReviewForm()
     return render(request, 'userpage.html',
-                  {"review_list": review_list, "review_form": review_form})
+                  {"review_list": review_list, "review_form": review_form, "username": username})
 
 
 def create_review(request):
