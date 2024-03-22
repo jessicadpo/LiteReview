@@ -88,7 +88,7 @@ def userpage(request, username):
 
     review_form = CreateReviewForm()
     return render(request, 'userpage.html',
-                  {"review_list": review_list, "review_form": review_form})
+                  {"review_list": review_list, "review_form": review_form, "username": username})
 
 
 def create_review(request):
