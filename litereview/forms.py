@@ -9,7 +9,8 @@ from django.core.exceptions import ValidationError
 
 from .models import Review
 
-class SignUpForm(UserCreationForm):  # pylint: disable=too-many-ancestors
+
+class SignUpForm(UserCreationForm):
     """
     Copied from: https://www.javatpoint.com/django-usercreationform
     With some modifications
