@@ -12,6 +12,7 @@ from .models import Review
 
 class SignUpForm(UserCreationForm):  # pylint: disable=too-many-ancestors
     """
+    Disabling pylint for ancestor error since this is best Django practice.
     Copied from: https://www.javatpoint.com/django-usercreationform
     With some modifications
     """
