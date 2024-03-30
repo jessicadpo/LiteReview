@@ -159,11 +159,13 @@ header {
     margin-right: 30px;
 }
 
-.media-icon, .star-icon {
+.media-icon,
+.star-icon {
     width: 100%;
 }
 
-.media-type, .rating {
+.media-type,
+.rating {
     font-size: 2vw;
     text-align: left;
     white-space: nowrap;

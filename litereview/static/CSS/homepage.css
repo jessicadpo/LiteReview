@@ -197,18 +197,20 @@ body {
     margin-right: 30px;
 }
 
-.media-icon, .star-icon {
+.media-icon,
+.star-icon {
     width: 100%;
 }
 
-.media-type, .rating {
+.media-type,
+.rating {
     font-size: 1.6vw;
     text-align: left;
     white-space: nowrap;
 }
 
 .comic-type {
-    font-size: 1.0vw;
+    font-size: 1vw;
 }
 
 .edit-delete-btns * {
