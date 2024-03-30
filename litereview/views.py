@@ -118,14 +118,16 @@ class Icon:  # pylint: disable=too-few-public-methods
         self.logger = Logger()
 
     def get_media_icon(self, media_name):
-        """media_name is a string with the values MOV, BOK, MGA, TVS, MUS, or COM"""
+        """media_name is a string with the values MOV, BOK, MGA, TVS, MUS, COM, VGA, or POD"""
         icon_paths = {
             "MOV": "../static/icons/MOV.png",
             "BOK": "../static/icons/BOK.png",
             "MGA": "../static/icons/MGA.png",
             "TVS": "../static/icons/TVS.png",
             "MUS": "../static/icons/MUS.png",
-            "COM": "../static/icons/COM.png"
+            "COM": "../static/icons/COM.png",
+            "VGA": "../static/icons/VGA.png",
+            "POD": "../static/icons/POD.png"
         }
         if isinstance(media_name, str) is False:
             raise TypeError  # Function stops here if error occurs

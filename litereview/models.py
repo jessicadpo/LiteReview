@@ -10,10 +10,12 @@ class Review(models.Model):
         """List of valid media types, each self-explanatory"""
         MOVIE = "MOV", _("Movie")
         BOOK = "BOK", _("Book")
-        MANGA = "MGA", _("Manga/Manwha/Manhua")
+        MANGA = "MGA", _("Manga")
         TVSHOW = "TVS", _("TV")
         MUSIC = "MUS", _("Music")
         COMIC = "COM", _("Comic/Graphic Novel")
+        GAME = "VGA", _("Video Game")
+        PODCAST = "POD", _("Podcast")
 
     class ProgressStatus(models.TextChoices):
         """List of valid completion statuses"""
