@@ -145,17 +145,15 @@ I am immensely surprised how simple that worked.-->
             <div class="review-container">
                 <div class="review-details">
                     <div class="title-creator">
-                        <h3>{{ rev.review.title }}</h3>
+                        <h2>{{ rev.review.title }}</h2>
                         <div>{{ rev.review.author }}</div>
                     </div>
-                    <div><img class="media-type" src="{{ rev.media_type_icon }}" alt="Media Type"
-                              style="width: 20px; height: auto;">{{ rev.media_type }}</div>
-                    <div>{{ rev.review.datetime.date }}</div>
+                    <img class="media-icon" src="{{ rev.media_type_icon }}" alt="Media Type">
+                    <span class="media-type {% if rev.media_type == 'Comic/Graphic Novel' %} comic-type {% endif %}">{{ rev.media_type }}</span>
+                    <img class="star-icon" src="../static/icons/md_star.png" alt="Star Rating">
+                    <span class="rating">{{ rev.review.rating }} / 10</span>
                     <div>Status: {{ rev.review.status }}</div>
-                    <div>
-                        <img id="review-star" src="../static/icons/md_star.png" alt="Star Rating">
-                        <span>{{ rev.review.rating }} /10</span>
-                    </div>
+                    <div>{{ rev.review.datetime.date }}</div>
                     <div>
                         <button class="expand-button">Expand Review</button>
                     </div>

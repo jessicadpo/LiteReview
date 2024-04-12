@@ -49,34 +49,24 @@
 <hr>
 <div class="review-section">
     <!-- Reviews will be in same style and will be shown based on user page -->
-    {% for rev in review_list %}   
-        <div class="review-container">
-            <div class="review-details">
-                <div class="title-creator">
-                    <h3>{{ rev.review.title }}</h3>
-                    <div>{{ rev.review.author }}</div>
-                </div>
-                <div>
-                    <img class="media-type" src="{{ rev.media_type_icon }}" alt="Media Type" style="width: 20px; height: auto;">
-                    {{ rev.media_type }}
-                </div>
-                <div>{{ rev.review.datetime.date }}</div>
-                <div>Status: {{ rev.review.status }}</div>
-                <div>
-                    <img class="review-star" src="../static/icons/md_star.png" alt="Star Rating">
-                    <span>{{ rev.review.rating }} /10</span>
-                </div>
-                <div>
-                    <button class="expand-button">Expand Review</button>
-                </div>
-                <div class="edit-delete-btns">
-                    <div class="edit-button" onclick="alert('Edit review')">
-                        <img class="media-type" src="../static/icons/edit.png" alt="Media Type">
-                    </div>
-                    <div class="delete-button" onclick="alert('replace me with deleting the review')">
-                        <img class="media-type" src="../static/icons/delete.png" alt="Media Type">
-                    </div>
-                </div>
+    {% for rev in review_list %}
+        <div class="review-details">
+            <div class="title-creator">
+                <h2>{{ rev.review.title }}</h2>
+                <p>{{ rev.review.author }}</p>
+            </div>
+            <img class="media-icon" src="{{ rev.media_type_icon }}" alt="Media Type">
+            <span class="media-type {% if rev.media_type == 'Comic/Graphic Novel' %} comic-type {% endif %}">{{ rev.media_type }}</span>
+            <img class="star-icon" src="../static/icons/md_star.png" alt="Star Rating">
+            <span class="rating">{{ rev.review.rating }} / 10</span>
+            <div>Status: {{ rev.review.status }}</div>
+            <div>{{ rev.review.datetime.date }}</div>
+            <div>
+                <button class="expand-button">Expand Review</button>
+            </div>
+            <div class="edit-delete-btns">
+                <img onclick="alert('Edit review')" src="../static/icons/edit.png" alt="Edit button">
+                <img onclick="alert('Delete review')" src="../static/icons/delete.png" alt="Delete button">
             </div>
         </div>
         <div class="expanded-review">
